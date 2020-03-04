@@ -10,7 +10,7 @@
 
 - [Présentation HTML](https://ALEA-UdeS.github.io/Atelier-R/Atelier_1B)
 
-## Deuxièeme journée d'atelier
+## Deuxième journée d'atelier
 
 - [Présentation HTML](https://ALEA-UdeS.github.io/Atelier-R/Atelier_2)
 
