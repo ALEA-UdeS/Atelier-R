@@ -28,7 +28,3 @@
   - `G` pour entrer le numéro d'une slide,
   - `O` pour naviguer facilement dans la présentation,
   - `T` pour avoir une barre avec le numéro des diapositive.
-
-# Exporter en format pdf
-
-- Utiliser l'exportation pdf du navigateur
