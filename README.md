@@ -2,13 +2,9 @@
 
 **Formateur:** Jean-Philippe Morissette
 
-## Test
-
-- [Accueil](https://ALEA-UdeS.github.io/)
-
 ## Première journée d'atelier
 
-- [Présentation HTML](https://ALEA-UdeS.github.io/Atelier-R/)
+- [Présentation HTML](https://ALEA-UdeS.github.io/Atelier-R/Atelier_1A)
 
 ## Première journée d'atelier (suite)
 
@@ -17,11 +13,6 @@
 ## Deuxièeme journée d'atelier
 
 - [Présentation HTML](https://ALEA-UdeS.github.io/Atelier-R/Atelier_2)
-
-
-## Séance 5: Algorithmique II
-
-- [Présentation HTML](https://econumuds.github.io/BIO109/cours5)
 
 
 ### Utilisation du diaporama
