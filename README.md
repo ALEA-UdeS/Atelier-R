@@ -8,7 +8,7 @@
 
 ## Première journée d'atelier
 
-- [Présentation HTML](https://ALEA-UdeS.github.io/Atelier-R/Atelier_1A)
+- [Présentation HTML](https://ALEA-UdeS.github.io/Atelier-R/)
 
 ## Première journée d'atelier (suite)
 
