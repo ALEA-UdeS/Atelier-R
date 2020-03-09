@@ -2,6 +2,8 @@
 
 **Formateur:** Jean-Philippe Morissette
 
+**Collaborateur:** Pr Dominique Gravel (Version initiale du code)
+
 ## Première journée d'atelier
 
 - [Présentation HTML](https://ALEA-UdeS.github.io/Atelier-R/Atelier_1A)
