@@ -208,22 +208,6 @@ Imaginez cependant que vous découvrez un jour qu'un passionné des salamandres 
 La semaine dernière, nous avons vu comment généraliser une séquence d'opérations au moyen d'une fonction. Comment est-ce qu'on peut généraliser des opérations qui sont répétées très souvent ? C'est le principe de la boucle.
 
 ---
-# Mise en situation
-
-La solution ressemblerait à
-
-```{r eval=FALSE}
-n_sites <- ncol(donnees)
-n_annees <- nrow(donnees)
-lambda <- matrix(nrow = n_annees-1, ncol = sites)
-for(i in 2:n_annees) {
-    for(j in 1:n_sites) {
-        lambda[i-1,j] <- (donnees[i,j] - donnees[i-1,j]) / donnees[i-1,j]
-    }   
-}
-```
-
----
 # Définition
 
 Une boucle est une commande qui permet de répéter une série d'instructions sous des conditions définies de départ et de fin. C'est une commande de base de l'algorithmique.
@@ -374,6 +358,36 @@ for(i in 1:5) {
     }
 }
 ma_matrice
+```
+
+---
+
+# Retour sur la mise en situation
+
+Vous étudiez la démographie de la population de salamandres pourpres dans le ruisseau du massif des monts Sutton. Vos données sont très simples, vous avez une mesure d'abondance à deux points d'échantillonnage au long du ruisseau. Vous devez vérifier si la population est en croissance, stable ou en déclin sur une séquence de 5 ans. Le taux de croissance est donné par l'équation suivante :
+
+$$
+\dfrac{N_{t+1} - N_t}{N_t}
+$$
+
+On se souvient que c'est assez fastidieux de refaire cet exercice à la main, mais c'est faisable.
+
+Imaginez cependant que vous découvrez un jour qu'un passionné des salamandres a déjà fait une étude similaire sur ce site, et par miracle vous obtenez des séries temporelles de 50 ans réparties sur 10 points d'échantillonnage. Il faudra changer de technique....
+
+---
+# Retour sur la mise en situation
+
+La solution ressemblerait à
+
+```{r eval=FALSE}
+n_sites <- ncol(donnees)
+n_annees <- nrow(donnees)
+lambda <- matrix(nrow = n_annees-1, ncol = sites)
+for(i in 2:n_annees) {
+    for(j in 1:n_sites) {
+        lambda[i-1,j] <- (donnees[i,j] - donnees[i-1,j]) / donnees[i-1,j]
+    }   
+}
 ```
 
 ---
@@ -1005,6 +1019,10 @@ Vous observez une personne ivre à la sortie d'un bar prendre sa voiture. Vous a
 - Le quartier où vous vous trouvez est un plan cartésien parfait (une grille régulière) composé de blocs de 250 m;
 - À chaque intersection, votre conducteur ivre tourne à gauche ou à droite avec une probabilité de 0.5;
 - Il faut environ 30 secondes à votre conducteur pour parcourir la distance entre deux arrêts.
+
+---
+
+# Un exercice est encore plus efficace...
 
 Calculez la distance parcourue en X et en Y, puis reprenez votre calcul une centaine de fois pour estimer la distance moyenne parcourue entre le point de départ et la fin du parcours de notre individu (à vol d'oiseau).
 

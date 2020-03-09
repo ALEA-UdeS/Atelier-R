@@ -217,23 +217,6 @@ Imaginez cependant que vous découvrez un jour qu'un passionné des salamandres 
 La semaine dernière, nous avons vu comment généraliser une séquence d'opérations au moyen d'une fonction. Comment est-ce qu'on peut généraliser des opérations qui sont répétées très souvent ? C'est le principe de la boucle.
 
 ---
-# Mise en situation
-
-La solution ressemblerait à
-
-
-```r
-n_sites &lt;- ncol(donnees)
-n_annees &lt;- nrow(donnees)
-lambda &lt;- matrix(nrow = n_annees-1, ncol = sites)
-for(i in 2:n_annees) {
-    for(j in 1:n_sites) {
-        lambda[i-1,j] &lt;- (donnees[i,j] - donnees[i-1,j]) / donnees[i-1,j]
-    }   
-}
-```
-
----
 # Définition
 
 Une boucle est une commande qui permet de répéter une série d'instructions sous des conditions définies de départ et de fin. C'est une commande de base de l'algorithmique.
@@ -487,11 +470,11 @@ for(etape in 1:5) {
 ```
 
 ```
-## [1] 0.9201664
-## [1] 0.0767161
-## [1] 0.2513312
-## [1] 0.7356718
-## [1] 0.6148731
+## [1] 0.6094816
+## [1] 0.4526052
+## [1] 0.1480766
+## [1] 0.1254488
+## [1] 0.04900929
 ```
 
 ---
@@ -607,6 +590,37 @@ ma_matrice
 ```
 
 ---
+
+# Retour sur la mise en situation
+
+Vous étudiez la démographie de la population de salamandres pourpres dans le ruisseau du massif des monts Sutton. Vos données sont très simples, vous avez une mesure d'abondance à deux points d'échantillonnage au long du ruisseau. Vous devez vérifier si la population est en croissance, stable ou en déclin sur une séquence de 5 ans. Le taux de croissance est donné par l'équation suivante :
+
+$$
+\dfrac{N_{t+1} - N_t}{N_t}
+$$
+
+On se souvient que c'est assez fastidieux de refaire cet exercice à la main, mais c'est faisable.
+
+Imaginez cependant que vous découvrez un jour qu'un passionné des salamandres a déjà fait une étude similaire sur ce site, et par miracle vous obtenez des séries temporelles de 50 ans réparties sur 10 points d'échantillonnage. Il faudra changer de technique....
+
+---
+# Retour sur la mise en situation
+
+La solution ressemblerait à
+
+
+```r
+n_sites &lt;- ncol(donnees)
+n_annees &lt;- nrow(donnees)
+lambda &lt;- matrix(nrow = n_annees-1, ncol = sites)
+for(i in 2:n_annees) {
+    for(j in 1:n_sites) {
+        lambda[i-1,j] &lt;- (donnees[i,j] - donnees[i-1,j]) / donnees[i-1,j]
+    }   
+}
+```
+
+---
 # La boucle while
 
 La boucle de type *while*, pour 'pendant', répète une série d'intructions tant qu'une condition n'a pas été atteinte. C'est une version générale de la boucle *for*. Par exemple, on peut tirer deux pièces de monnaie jusqu'à ce que l'on obtienne la combinaison pile-pile.
@@ -625,7 +639,13 @@ while(combinaison != "pile-pile") {
 
 ```
 ## [1] "face-pile"
+## [1] "face-pile"
+## [1] "face-pile"
 ## [1] "face-face"
+## [1] "pile-face"
+## [1] "pile-face"
+## [1] "face-face"
+## [1] "face-pile"
 ## [1] "pile-pile"
 ```
 
@@ -655,7 +675,7 @@ mean(res)
 ```
 
 ```
-## [1] 6.0093
+## [1] 6.0037
 ```
 
 ---
@@ -885,17 +905,17 @@ cbind(X,res)
 
 
 ```
-##       X                    res         
-##  [1,] "0.786396918818355"  "plus grand"
-##  [2,] "0.324520354624838"  "plus grand"
-##  [3,] "0.550991864874959"  "plus grand"
-##  [4,] "0.561006883624941"  "plus grand"
-##  [5,] "0.885687385918573"  "plus grand"
-##  [6,] "0.639193971641362"  "plus grand"
-##  [7,] "0.138495676452294"  "plus petit"
-##  [8,] "0.246051867026836"  "plus petit"
-##  [9,] "0.156990815885365"  "plus petit"
-## [10,] "0.0328506070654839" "plus petit"
+##       X                   res         
+##  [1,] "0.183863036334515" "plus petit"
+##  [2,] "0.158284286269918" "plus petit"
+##  [3,] "0.497231239220127" "plus grand"
+##  [4,] "0.122568098129705" "plus petit"
+##  [5,] "0.561312662903219" "plus grand"
+##  [6,] "0.491836695466191" "plus grand"
+##  [7,] "0.294463182101026" "plus petit"
+##  [8,] "0.738069112179801" "plus grand"
+##  [9,] "0.910619804402813" "plus grand"
+## [10,] "0.606380555778742" "plus grand"
 ```
 ]
 
@@ -939,17 +959,17 @@ cbind(X,res2)
 
 
 ```
-##       X                    res2 
-##  [1,] "0.786396918818355"  "non"
-##  [2,] "0.324520354624838"  "oui"
-##  [3,] "0.550991864874959"  "oui"
-##  [4,] "0.561006883624941"  "oui"
-##  [5,] "0.885687385918573"  "non"
-##  [6,] "0.639193971641362"  "non"
-##  [7,] "0.138495676452294"  "non"
-##  [8,] "0.246051867026836"  "oui"
-##  [9,] "0.156990815885365"  "non"
-## [10,] "0.0328506070654839" "non"
+##       X                   res2 
+##  [1,] "0.183863036334515" "non"
+##  [2,] "0.158284286269918" "non"
+##  [3,] "0.497231239220127" "oui"
+##  [4,] "0.122568098129705" "non"
+##  [5,] "0.561312662903219" "oui"
+##  [6,] "0.491836695466191" "oui"
+##  [7,] "0.294463182101026" "oui"
+##  [8,] "0.738069112179801" "non"
+##  [9,] "0.910619804402813" "non"
+## [10,] "0.606380555778742" "non"
 ```
 ]
 
@@ -975,17 +995,17 @@ cbind(X,res2)
     
 
 ```
-##       X                    res2 
-##  [1,] "0.786396918818355"  "non"
-##  [2,] "0.324520354624838"  "oui"
-##  [3,] "0.550991864874959"  "oui"
-##  [4,] "0.561006883624941"  "oui"
-##  [5,] "0.885687385918573"  "non"
-##  [6,] "0.639193971641362"  "non"
-##  [7,] "0.138495676452294"  "non"
-##  [8,] "0.246051867026836"  "oui"
-##  [9,] "0.156990815885365"  "non"
-## [10,] "0.0328506070654839" "non"
+##       X                   res2 
+##  [1,] "0.183863036334515" "non"
+##  [2,] "0.158284286269918" "non"
+##  [3,] "0.497231239220127" "oui"
+##  [4,] "0.122568098129705" "non"
+##  [5,] "0.561312662903219" "oui"
+##  [6,] "0.491836695466191" "oui"
+##  [7,] "0.294463182101026" "oui"
+##  [8,] "0.738069112179801" "non"
+##  [9,] "0.910619804402813" "non"
+## [10,] "0.606380555778742" "non"
 ```
 ]
 
@@ -1078,7 +1098,7 @@ tirage(3, cartes)
 ```
 
 ```
-## [1] "8 - trèfle"    "reine - coeur" "as - coeur"
+## [1] "9 - trèfle"  "2 - carreau" "6 - coeur"
 ```
 
 ---
@@ -1156,7 +1176,7 @@ rbinom(n = 10, size = 1, prob = 0.5)
 ```
 
 ```
-##  [1] 0 1 1 1 0 0 0 1 0 0
+##  [1] 0 0 1 0 0 1 0 0 0 0
 ```
 ]
 
@@ -1179,12 +1199,12 @@ rmultinom(n = 3, size = 1, prob = rep(1/6, 6))
 
 ```
 ##      [,1] [,2] [,3]
-## [1,]    0    0    0
-## [2,]    1    0    0
+## [1,]    0    1    0
+## [2,]    0    0    1
 ## [3,]    0    0    0
-## [4,]    0    1    0
-## [5,]    0    0    0
-## [6,]    0    0    1
+## [4,]    0    0    0
+## [5,]    1    0    0
+## [6,]    0    0    0
 ```
 ]
 
@@ -1324,6 +1344,10 @@ Vous observez une personne ivre à la sortie d'un bar prendre sa voiture. Vous a
 - Le quartier où vous vous trouvez est un plan cartésien parfait (une grille régulière) composé de blocs de 250 m;
 - À chaque intersection, votre conducteur ivre tourne à gauche ou à droite avec une probabilité de 0.5;
 - Il faut environ 30 secondes à votre conducteur pour parcourir la distance entre deux arrêts.
+
+---
+
+# Un exercice est encore plus efficace...
 
 Calculez la distance parcourue en X et en Y, puis reprenez votre calcul une centaine de fois pour estimer la distance moyenne parcourue entre le point de départ et la fin du parcours de notre individu (à vol d'oiseau).
 
@@ -1578,7 +1602,7 @@ system.time(tri(x))
 
 ```
 ##    user  system elapsed 
-##    0.25    0.00    0.25
+##    0.26    0.00    0.26
 ```
 
 ---
@@ -1638,7 +1662,7 @@ system.time(f1(x))
 
 ```
 ##    user  system elapsed 
-##    0.07    0.00    0.06
+##    0.06    0.00    0.07
 ```
 
 ```r
@@ -1647,7 +1671,7 @@ system.time(f2(x))
 
 ```
 ##    user  system elapsed 
-##    0.01    0.00    0.02
+##       0       0       0
 ```
 ]
 
@@ -1689,7 +1713,7 @@ system.time(f1(X))
 ##    user  system elapsed 
 ##       0       0       0 
 ##    user  system elapsed 
-##    0.66    0.00    0.65
+##    0.71    0.00    0.70
 ```
 ]
 
