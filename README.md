@@ -1,6 +1,7 @@
 # Atelier R
 
 **Formateur:** Jean-Philippe Morissette
+
 **Collaborateur:** Pr Dominique Gravel (Version initiale du code)
 
 ## Première journée d'atelier
