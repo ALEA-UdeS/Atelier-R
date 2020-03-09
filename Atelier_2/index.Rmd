@@ -266,7 +266,7 @@ for(etape in 1:5) {
 ```
 
 ---
-# Un premier exercice simple
+# Exercice
 
 Transformez en fahrenheit une séquence de température en celsius qui va de -50 à 100, par bond de 1. Rappelez vous que la conversion est $1.8*C + 32$.
 
@@ -275,7 +275,7 @@ Transformez en fahrenheit une séquence de température en celsius qui va de -50
 - Faites le calcul approprié
 
 ---
-# Un premier exercice simple
+# Exercice
 
 ```{r}
 for(C in -50:100) {
@@ -535,7 +535,7 @@ test = function(jour) {
 L'indentation (l'utilisation d'espaces dans le code) est fort utile pour s'y retrouver lorsque les conditions deviennent nombreuses. Reprenons l'exemple précédent.
 
 ---
-# Arbre décisionnel
+# Astuce (comparaison)
 
 ```{r eval = FALSE}
 test = function(jour) {
@@ -559,7 +559,7 @@ print("Bof, j'ai encore du temps !")
 ```
 
 ---
-# Arbre décisionnel
+# Astuce (comparaison)
 
 ```{r eval = FALSE}
 test = function(jour) {

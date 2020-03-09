@@ -6,7 +6,7 @@
     <meta name="author" content="Jean-Philippe Morissette" />
     <link href="assets/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="assets/remark-css-0.0.1/hygge.css" rel="stylesheet" />
-    <link rel="stylesheet" href="..\Atelier-R.css" type="text/css" />
+    <link rel="stylesheet" href="..\bio109.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -301,7 +301,7 @@ for(etape in 1:5) {
 ```
 
 ---
-# Un premier exercice simple
+# Exercice
 
 Transformez en fahrenheit une séquence de température en celsius qui va de -50 à 100, par bond de 1. Rappelez vous que la conversion est `\(1.8*C + 32\)`.
 
@@ -310,7 +310,7 @@ Transformez en fahrenheit une séquence de température en celsius qui va de -50
 - Faites le calcul approprié
 
 ---
-# Un premier exercice simple
+# Exercice
 
 
 ```r
@@ -487,11 +487,11 @@ for(etape in 1:5) {
 ```
 
 ```
-## [1] 0.3172125
-## [1] 0.863756
-## [1] 0.2926358
-## [1] 0.930266
-## [1] 0.08787028
+## [1] 0.6078471
+## [1] 0.6070091
+## [1] 0.325475
+## [1] 0.8172161
+## [1] 0.9027572
 ```
 
 ---
@@ -624,13 +624,6 @@ while(combinaison != "pile-pile") {
 ```
 
 ```
-## [1] "face-pile"
-## [1] "face-face"
-## [1] "face-face"
-## [1] "face-face"
-## [1] "face-pile"
-## [1] "pile-face"
-## [1] "face-pile"
 ## [1] "pile-pile"
 ```
 
@@ -660,7 +653,7 @@ mean(res)
 ```
 
 ```
-## [1] 6.0525
+## [1] 5.9861
 ```
 
 ---
@@ -796,7 +789,7 @@ test = function(jour) {
 L'indentation (l'utilisation d'espaces dans le code) est fort utile pour s'y retrouver lorsque les conditions deviennent nombreuses. Reprenons l'exemple précédent.
 
 ---
-# Arbre décisionnel
+# Astuce (comparaison)
 
 
 ```r
@@ -821,7 +814,7 @@ print("Bof, j'ai encore du temps !")
 ```
 
 ---
-# Arbre décisionnel
+# Astuce (comparaison)
 
 
 ```r
@@ -890,17 +883,17 @@ cbind(X,res)
 
 
 ```
-##       X                   res         
-##  [1,] "0.223669568542391" "plus petit"
-##  [2,] "0.395183282205835" "plus grand"
-##  [3,] "0.845033577876166" "plus grand"
-##  [4,] "0.108332220464945" "plus petit"
-##  [5,] "0.249275591224432" "plus petit"
-##  [6,] "0.290889850119129" "plus petit"
-##  [7,] "0.642620470840484" "plus grand"
-##  [8,] "0.803172507090494" "plus grand"
-##  [9,] "0.420607441337779" "plus grand"
-## [10,] "0.222812543157488" "plus petit"
+##       X                    res         
+##  [1,] "0.291446254821494"  "plus petit"
+##  [2,] "0.552237808937207"  "plus grand"
+##  [3,] "0.988015630282462"  "plus grand"
+##  [4,] "0.279715092619881"  "plus petit"
+##  [5,] "0.999404871370643"  "plus grand"
+##  [6,] "0.930200000526384"  "plus grand"
+##  [7,] "0.988119495101273"  "plus grand"
+##  [8,] "0.0357627670746297" "plus petit"
+##  [9,] "0.818047169130296"  "plus grand"
+## [10,] "0.500165479024872"  "plus grand"
 ```
 ]
 
@@ -944,17 +937,17 @@ cbind(X,res2)
 
 
 ```
-##       X                   res2 
-##  [1,] "0.223669568542391" "oui"
-##  [2,] "0.395183282205835" "oui"
-##  [3,] "0.845033577876166" "non"
-##  [4,] "0.108332220464945" "non"
-##  [5,] "0.249275591224432" "oui"
-##  [6,] "0.290889850119129" "oui"
-##  [7,] "0.642620470840484" "non"
-##  [8,] "0.803172507090494" "non"
-##  [9,] "0.420607441337779" "oui"
-## [10,] "0.222812543157488" "oui"
+##       X                    res2 
+##  [1,] "0.291446254821494"  "oui"
+##  [2,] "0.552237808937207"  "oui"
+##  [3,] "0.988015630282462"  "non"
+##  [4,] "0.279715092619881"  "oui"
+##  [5,] "0.999404871370643"  "non"
+##  [6,] "0.930200000526384"  "non"
+##  [7,] "0.988119495101273"  "non"
+##  [8,] "0.0357627670746297" "non"
+##  [9,] "0.818047169130296"  "non"
+## [10,] "0.500165479024872"  "oui"
 ```
 ]
 
@@ -980,17 +973,17 @@ cbind(X,res2)
     
 
 ```
-##       X                   res2 
-##  [1,] "0.223669568542391" "oui"
-##  [2,] "0.395183282205835" "oui"
-##  [3,] "0.845033577876166" "non"
-##  [4,] "0.108332220464945" "non"
-##  [5,] "0.249275591224432" "oui"
-##  [6,] "0.290889850119129" "oui"
-##  [7,] "0.642620470840484" "non"
-##  [8,] "0.803172507090494" "non"
-##  [9,] "0.420607441337779" "oui"
-## [10,] "0.222812543157488" "oui"
+##       X                    res2 
+##  [1,] "0.291446254821494"  "oui"
+##  [2,] "0.552237808937207"  "oui"
+##  [3,] "0.988015630282462"  "non"
+##  [4,] "0.279715092619881"  "oui"
+##  [5,] "0.999404871370643"  "non"
+##  [6,] "0.930200000526384"  "non"
+##  [7,] "0.988119495101273"  "non"
+##  [8,] "0.0357627670746297" "non"
+##  [9,] "0.818047169130296"  "non"
+## [10,] "0.500165479024872"  "oui"
 ```
 ]
 
@@ -1083,7 +1076,7 @@ tirage(3, cartes)
 ```
 
 ```
-## [1] "as - carreau" "5 - pique"    "as - coeur"
+## [1] "9 - pique"   "as - trèfle" "9 - trèfle"
 ```
 
 ---
@@ -1161,7 +1154,7 @@ rbinom(n = 10, size = 1, prob = 0.5)
 ```
 
 ```
-##  [1] 0 1 0 1 1 0 0 0 0 1
+##  [1] 0 1 1 0 1 1 1 0 1 0
 ```
 ]
 
@@ -1184,10 +1177,10 @@ rmultinom(n = 3, size = 1, prob = rep(1/6, 6))
 
 ```
 ##      [,1] [,2] [,3]
-## [1,]    0    0    0
-## [2,]    1    1    0
-## [3,]    0    0    0
-## [4,]    0    0    1
+## [1,]    0    0    1
+## [2,]    0    0    0
+## [3,]    1    0    0
+## [4,]    0    1    0
 ## [5,]    0    0    0
 ## [6,]    0    0    0
 ```
@@ -1563,7 +1556,7 @@ system.time(tri(x))
 
 ```
 ##    user  system elapsed 
-##    0.25    0.00    0.25
+##    0.28    0.00    0.28
 ```
 
 ---
@@ -1623,7 +1616,7 @@ system.time(f1(x))
 
 ```
 ##    user  system elapsed 
-##    0.06    0.00    0.07
+##    0.06    0.00    0.06
 ```
 
 ```r
@@ -1632,7 +1625,7 @@ system.time(f2(x))
 
 ```
 ##    user  system elapsed 
-##    0.01    0.00    0.02
+##       0       0       0
 ```
 ]
 
@@ -1674,7 +1667,7 @@ system.time(f1(X))
 ##    user  system elapsed 
 ##       0       0       0 
 ##    user  system elapsed 
-##    0.76    0.00    0.78
+##    0.72    0.00    0.72
 ```
 ]
 
