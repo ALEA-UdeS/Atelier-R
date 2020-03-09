@@ -6,7 +6,7 @@
     <meta name="author" content="Jean-Philippe Morissette" />
     <link href="assets/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="assets/remark-css-0.0.1/hygge.css" rel="stylesheet" />
-    <link rel="stylesheet" href="..\bio109.css" type="text/css" />
+    <link rel="stylesheet" href="..\Atelier-R.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -110,8 +110,8 @@ alea
 ```
 
 ```
-##  [1] 0.56991070 0.45686162 0.84251876 0.17295423 0.68586524 0.48009659
-##  [7] 0.05463664 0.86244940 0.05618474 0.43308076
+##  [1] 0.9974604 0.3385381 0.1014078 0.9229911 0.8098067 0.1569936 0.6988860
+##  [8] 0.5267658 0.1533002 0.7815901
 ```
 Ici la distribution utilisée est la distribution uniforme, toutes les autres distributions en sont dérivées.
 
@@ -327,8 +327,8 @@ alea
 ```
 
 ```
-##  [1] 0.33769074 0.33095101 0.89478553 0.69792520 0.05435182 0.65014380
-##  [7] 0.57482441 0.51796021 0.74032970 0.79820111
+##  [1] 0.4158788 0.6745312 0.8819218 0.2656673 0.6280368 0.3446457 0.6332759
+##  [8] 0.7320296 0.6540854 0.7201979
 ```
 
 ```r
@@ -336,7 +336,7 @@ min(alea)
 ```
 
 ```
-## [1] 0.05435182
+## [1] 0.2656673
 ```
 
 ```r
@@ -344,7 +344,7 @@ max(alea)
 ```
 
 ```
-## [1] 0.8947855
+## [1] 0.8819218
 ```
 
 ---
@@ -398,9 +398,9 @@ mat
 ```
 
 ```
-##            [,1]      [,2]
-## [1,] 0.53193394 0.8358324
-## [2,] 0.01005889 0.6147730
+##           [,1]      [,2]
+## [1,] 0.5257901 0.4488066
+## [2,] 0.6232983 0.3173792
 ```
 
 ```r
@@ -408,7 +408,7 @@ rowSums(mat)
 ```
 
 ```
-## [1] 1.3677663 0.6248318
+## [1] 0.9745967 0.9406775
 ```
 
 ```r
@@ -416,7 +416,7 @@ colSums(mat)
 ```
 
 ```
-## [1] 0.5419928 1.4506054
+## [1] 1.1490884 0.7661858
 ```
 
 ---
@@ -431,9 +431,9 @@ mat
 ```
 
 ```
-##            [,1]      [,2]
-## [1,] 0.53193394 0.8358324
-## [2,] 0.01005889 0.6147730
+##           [,1]      [,2]
+## [1,] 0.5257901 0.4488066
+## [2,] 0.6232983 0.3173792
 ```
 
 ```r
@@ -441,7 +441,7 @@ apply(X = mat, MARGIN = 1, FUN = sum)
 ```
 
 ```
-## [1] 1.3677663 0.6248318
+## [1] 0.9745967 0.9406775
 ```
 
 ```r
@@ -449,7 +449,7 @@ apply(X = mat, MARGIN = 2, FUN = sum)
 ```
 
 ```
-## [1] 0.5419928 1.4506054
+## [1] 1.1490884 0.7661858
 ```
 
 ---
@@ -495,8 +495,8 @@ class: middle, center, inverse
 
 Au moyen du fichier [PositionEquipe.csv](./donnees/PositionEquipe.csv), je vous demande de faire les opérations suivantes:
 
-1. Calculer le nombre total de joueurs pour chacune des positions, le nombre moyen de joueurs par équipe pour chacune des positions et le coefficient de variation (CV = Écart-type/Moyenne) ;
-2. Calculer le nombre total de joueurs pour chacune des positions par équipe ;
+1. Calculer le nombre total de joueurs pour chacune des positions, le nombre moyen de joueurs par équipe pour chacune des positions et le coefficient de variation (CV = Écart-type/Moyenne).
+2. Calculer le nombre total de joueurs pour chacune des positions par équipe.
 3. Transformer les valeurs trouvées en (2) en pourcentage.
 
 ---
@@ -606,12 +606,12 @@ tableau
 ```
 
 ```
-##             x          y
-## 1 -0.49432327  0.9260240
-## 2  0.30664474 -1.0519386
-## 3  0.63497892 -1.0293475
-## 4 -0.01475007  0.7137984
-## 5 -1.53684011  0.1503550
+##            x           y
+## 1 -1.2165486 -1.04984562
+## 2 -1.1645806 -0.69374419
+## 3 -0.5256619 -0.91993187
+## 4 -0.2786455 -0.06853807
+## 5  0.7973738  0.30923012
 ```
 
 ---
@@ -638,9 +638,9 @@ $$
 ```
 
 ```
-## [1] -1.060353
-## [1] 0.4328111
-## [1] 1.657368
+## [1] -0.5635331
+## [1] -0.4347577
+## [1] -0.3345152
 ```
 
 **Problème** - Ce n'est vraiment pas pratique si on a beaucoup de données ou si le format du tableau change.
@@ -660,11 +660,11 @@ for(i in 1:nrow(tableau)){
 ```
 
 ```
-## [1] -1.060353
-## [1] 0.4328111
-## [1] 1.657368
-## [1] -0.0150613
-## [1] 0.16666
+## [1] -0.5635331
+## [1] -0.4347577
+## [1] -0.3345152
+## [1] -0.05500786
+## [1] 0.2228187
 ```
 
 **Problème** - Qu'est-ce qu'on fait si on veut appliquer ce calcul sur plusieurs tableaux ???
@@ -827,7 +827,7 @@ prodsum(vecA, vecB)
 ```
 
 ```
-## [1] -1.0603531  0.4328111  1.6573683 -0.0150613  0.1666600
+## [1] -0.56353312 -0.43475771 -0.33451522 -0.05500786  0.22281866
 ```
 
 ```r
@@ -835,7 +835,7 @@ prodsum(tableau[,1], tableau[,2])
 ```
 
 ```
-## [1] -1.0603531  0.4328111  1.6573683 -0.0150613  0.1666600
+## [1] -0.56353312 -0.43475771 -0.33451522 -0.05500786  0.22281866
 ```
 
 ---
@@ -863,7 +863,7 @@ prodsum(vec3, vec4)
 ```
 
 ```
-## [1] -1.0603531  0.4328111  1.6573683 -1.6076865
+## [1] -0.5635331 -0.4347577 -0.3345152 -0.0648827
 ```
 
 ```r
@@ -871,7 +871,7 @@ prodsum(vec2, vec4)
 ```
 
 ```
-## [1] -1.0603531  0.4328111 -0.3339504  0.2144975
+## [1] -0.56353312 -0.43475771 -0.52382497 -0.06472865
 ```
 
 ---
@@ -941,12 +941,12 @@ prodsum(tableau, tableau2)
 ```
 
 ```
-##              x           y
-## 1 -0.908739349  0.01780962
-## 2  0.005318925  2.68946972
-## 3  0.134686175 -1.38697566
-## 4 -0.015467937  0.47401790
-## 5  0.165998267  0.05346972
+##            x          y
+## 1 14.8080391  0.9088105
+## 2 -2.3488974 -1.1024759
+## 3  0.6084132  2.2650720
+## 4 -0.3435974 -0.1437031
+## 5  0.5978147  0.2750498
 ```
 
 ---
@@ -990,13 +990,13 @@ test
 
 ```
 ## $moyenne
-## [1] 0.9530772
+## [1] 1.03704
 ## 
 ## $ecart_type
-## [1] 0.5245235
+## [1] 0.5415521
 ## 
 ## $CV
-## [1] 0.5503473
+## [1] 0.5222095
 ```
 
 ---

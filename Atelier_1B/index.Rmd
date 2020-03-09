@@ -4,7 +4,7 @@ author: "Jean-Philippe Morissette"
 date: "H2020"
 output:
   xaringan::moon_reader:
-    css: [default, ../bio109.css, "hygge"]
+    css: [default, ../Atelier-R.css, "hygge"]
     lib_dir: assets
     seal: false
     nature:
@@ -285,8 +285,8 @@ class: middle, center, inverse
 
 Au moyen du fichier [PositionEquipe.csv](./donnees/PositionEquipe.csv), je vous demande de faire les opérations suivantes:
 
-1. Calculer le nombre total de joueurs pour chacune des positions, le nombre moyen de joueurs par équipe pour chacune des positions et le coefficient de variation (CV = Écart-type/Moyenne) ;
-2. Calculer le nombre total de joueurs pour chacune des positions par équipe ;
+1. Calculer le nombre total de joueurs pour chacune des positions, le nombre moyen de joueurs par équipe pour chacune des positions et le coefficient de variation (CV = Écart-type/Moyenne).
+2. Calculer le nombre total de joueurs pour chacune des positions par équipe.
 3. Transformer les valeurs trouvées en (2) en pourcentage.
 
 ---
