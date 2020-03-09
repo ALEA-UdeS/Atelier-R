@@ -4,7 +4,7 @@ author: "Jean-Philippe Morissette"
 date: "H2020"
 output:
   xaringan::moon_reader:
-    css: [default, ../bio109.css, "hygge"]
+    css: [default, ../Atelier-R.css, "hygge"]
     lib_dir: assets
     seal: false
     nature:
@@ -208,22 +208,6 @@ Imaginez cependant que vous découvrez un jour qu'un passionné des salamandres 
 La semaine dernière, nous avons vu comment généraliser une séquence d'opérations au moyen d'une fonction. Comment est-ce qu'on peut généraliser des opérations qui sont répétées très souvent ? C'est le principe de la boucle.
 
 ---
-# Mise en situation
-
-La solution ressemblerait à
-
-```{r eval=FALSE}
-n_sites <- ncol(donnees)
-n_annees <- nrow(donnees)
-lambda <- matrix(nrow = n_annees-1, ncol = sites)
-for(i in 2:n_annees) {
-    for(j in 1:n_sites) {
-        lambda[i-1,j] <- (donnees[i,j] - donnees[i-1,j]) / donnees[i-1,j]
-    }   
-}
-```
-
----
 # Définition
 
 Une boucle est une commande qui permet de répéter une série d'instructions sous des conditions définies de départ et de fin. C'est une commande de base de l'algorithmique.
@@ -266,7 +250,7 @@ for(etape in 1:5) {
 ```
 
 ---
-# Un premier exercice simple
+# Exercice
 
 Transformez en fahrenheit une séquence de température en celsius qui va de -50 à 100, par bond de 1. Rappelez vous que la conversion est $1.8*C + 32$.
 
@@ -275,7 +259,7 @@ Transformez en fahrenheit une séquence de température en celsius qui va de -50
 - Faites le calcul approprié
 
 ---
-# Un premier exercice simple
+# Exercice
 
 ```{r}
 for(C in -50:100) {
@@ -374,6 +358,36 @@ for(i in 1:5) {
     }
 }
 ma_matrice
+```
+
+---
+
+# Retour sur la mise en situation
+
+Vous étudiez la démographie de la population de salamandres pourpres dans le ruisseau du massif des monts Sutton. Vos données sont très simples, vous avez une mesure d'abondance à deux points d'échantillonnage au long du ruisseau. Vous devez vérifier si la population est en croissance, stable ou en déclin sur une séquence de 5 ans. Le taux de croissance est donné par l'équation suivante :
+
+$$
+\dfrac{N_{t+1} - N_t}{N_t}
+$$
+
+On se souvient que c'est assez fastidieux de refaire cet exercice à la main, mais c'est faisable.
+
+Imaginez cependant que vous découvrez un jour qu'un passionné des salamandres a déjà fait une étude similaire sur ce site, et par miracle vous obtenez des séries temporelles de 50 ans réparties sur 10 points d'échantillonnage. Il faudra changer de technique....
+
+---
+# Retour sur la mise en situation
+
+La solution ressemblerait à
+
+```{r eval=FALSE}
+n_sites <- ncol(donnees)
+n_annees <- nrow(donnees)
+lambda <- matrix(nrow = n_annees-1, ncol = sites)
+for(i in 2:n_annees) {
+    for(j in 1:n_sites) {
+        lambda[i-1,j] <- (donnees[i,j] - donnees[i-1,j]) / donnees[i-1,j]
+    }   
+}
 ```
 
 ---
@@ -535,7 +549,7 @@ test = function(jour) {
 L'indentation (l'utilisation d'espaces dans le code) est fort utile pour s'y retrouver lorsque les conditions deviennent nombreuses. Reprenons l'exemple précédent.
 
 ---
-# Arbre décisionnel
+# Astuce (comparaison)
 
 ```{r eval = FALSE}
 test = function(jour) {
@@ -559,7 +573,7 @@ print("Bof, j'ai encore du temps !")
 ```
 
 ---
-# Arbre décisionnel
+# Astuce (comparaison)
 
 ```{r eval = FALSE}
 test = function(jour) {
@@ -912,7 +926,16 @@ class: middle, center, inverse
 <hr width="65%" size="0.3" color="orange" style="margin-top:-20px;"></hr>
 
 ---
-# Principe
+
+# Pourquoi "prise de décision" ?
+
+On peut trouver au milieu d'un algorithme un élément décisionnel aléatoire. Par exemple, la survie d'un individu suite à un évènement grave (AVC, accident de voiture, etc). Bien que l'on ne dispose pas nécessairement de cette information précise (ici la survie de l'individu) il est néanmoins possible, si l'on dispose de la distribution de probabilité associée à l'évènement aléatoire, de rendre notre algorithme fonctionnel.
+
+Remarquons que dans ce genre de situations, ce n'est pas le comportement d'un individu en particulier qui nous intéresse, mais plutôt le comportement global (d'une masse d'individus) ou encore le comportement à long terme (s'il s'agit d'un phénomène temporel). Malgré cela, on devra quand même pouvoir simuler le comportement, ou encore la <b> prise de décision </b>, de chacun des individus afin d'avoir une idée des tendances globales.
+
+---
+
+# Exemple
 ## L'épreuve de Bernoulli
 
 - Une épreuve de Bernoulli est une expérience aléatoire (un tirage) avec deux issues : succès ou échec;
@@ -920,7 +943,7 @@ class: middle, center, inverse
 - La probabilité de succès est représentée par le paramètre `p`, alors que la probabilité d'un échec est représentée par `1-p`;
 
 ---
-# Principe
+# Exemple
 ## L'épreuve de Bernoulli
 
 **Exemple des jeux de hasard:** la pièce de monnaie
@@ -929,14 +952,16 @@ class: middle, center, inverse
 
 - Quel est le sexe du nouveau-né?
 - Est-ce qu'une personne susceptible sera contaminée par une virus après avoir été en contact avec une personne infectée?
-- Est-ce qu'il y a un as sur le dessus du paquet de cartes?
 - Dans une manufacture, est-ce qu'un pièce pourra passer l'étape du triage?
 - Déterminer si un électeur votera **oui** dans un prochain référendum.
+- Déterminer les parts d'un marché après plusieurs campagnes publicitaires.
 
 ---
 # Simuler un tirage de Bernoulli
 
-Lorsque $p = 0.5$, on tire une pièce de monnaie. Mais qu'en est-il si la pièce est biaisée, par exemple si la face est plus lourde et donc la probabilité d'obtenir pile est de $p = 0.55$ ?
+Dans le cas classique du lancer d'une pièce de monnaie, on utilise $p = 0.5$. 
+
+Mais qu'en est-il si la pièce est biaisée, par exemple si la face est plus lourde et donc la probabilité d'obtenir pile est de $p = 0.55$ ?
 
 ```{r}
 set.seed(1)
@@ -947,33 +972,42 @@ res
 ```
 
 ---
-# En d'autres mots...
+# Comprendre la tendance globale
 
-Si $U$ est une variable aléatoire distribuée selon la loi uniforme entre 0 et 1, alors la chance que $U < p$ est exactement de valeur $p$. Si on réalise $n$ tirage, alors l'espérance du nombre de succès est exactement $np$.
+
+Si $U$ est une variable aléatoire distribuée selon la loi uniforme entre 0 et 1, alors la chance que $U < p$ est exactement de valeur $p$. Si on réalise $n$ tirage, alors le nombre moyen de succès (aussi appelé l'espérance du nombre moyen de succès) est exactement $np$.
+
+<div style='text-align:center;'>
+<img src="assets/img/Uniforme_Proba.PNG" width="50%"></img>
+</div>
 
 ---
 
 # Un exemple vaut mille mots
 
-- Tirez au hasard 1000 chiffres de la loi uniforme bornée entre 0 et 1
-- Créez un vecteur 'res' rempli de 0 et de 1000 unités de longueur
+- Tirez au hasard 10 000 chiffres de la loi uniforme bornée entre 0 et 1
+- Créez un vecteur 'res' rempli de 0 et de 10 000 unités de longueur
 - Pour chaque valeur de la séquence, évaluez si le chiffre est plus petit que la valeur seuil de $p = 0.2$. Si la valeur est plus petite, inscrivez 1 dans le vecteur 'res' à la position correspondante
 - Combien de fois est-ce que la valeur est inférieure à $p$ ?
 - Essayez à nouveau et comparez.
 
 ---
 
-# Un exemple vaut mille mots
+# Solution
+
+```{r eval=TRUE, echo=FALSE}
+set.seed(1)
+```
 
 ```{r}
 
-X <- runif(n = 1000, min = 0, max = 1)
+X <- runif(n = 10000, min = 0, max = 1)
 p = 0.2
-res <- numeric(length = 1000)
+res <- numeric(length = 10000)
 res[X<p] <- 1
 sum(res)
 
-1000*p
+10000*p
 ```
 
 ---
@@ -986,32 +1020,87 @@ Vous observez une personne ivre à la sortie d'un bar prendre sa voiture. Vous a
 - À chaque intersection, votre conducteur ivre tourne à gauche ou à droite avec une probabilité de 0.5;
 - Il faut environ 30 secondes à votre conducteur pour parcourir la distance entre deux arrêts.
 
-Calculez la distance parcourue en X et en Y, puis reprenez votre calcul une centaine de fois pour estimer la distance moyenne parcourue (à vol d'oiseau).
+---
+
+# Un exercice est encore plus efficace...
+
+Calculez la distance parcourue en X et en Y, puis reprenez votre calcul une centaine de fois pour estimer la distance moyenne parcourue entre le point de départ et la fin du parcours de notre individu (à vol d'oiseau).
+
+Vous pouvez utiliser le fichier [Deplacement_Grille_Incomplet.R](./donnees/Deplacement_Grille_Incomplet.R) pour vous aider. Ce fichier contient une partie des fonctions qui gèrent le changement de direction et le déplacement de l'individu.
 
 ---
 # Solution
 
 .pull-left[
 
+```{r eval=TRUE, echo=FALSE}
+# Fonction qui permet de modifier la direction de marche de la personne
+#
+# ENTREES:
+#   DirectionDepart:    la direction vers laquelle la personne se deplace pour le moment.
+#   Probabilite:        un vecteur contenant les probabilites d'aller dans l'une ou l'autre des directions. 
+#                       Probabilite = c(ProbabiliteGauche, ProbabiliteDroite)
+#
+# SORITES:
+#   NouvelleDirection:  la direction vers laquelle la personne va se deplacer au prochain carrefour.
+#
+ChangerDirection = function(DirectionDepart, Probabilite){
+  
+  # A COMPLETER: Mettre la condition pour tourner a gauche
+  if(runif(1,0,1) < Probabilite[1]){ # <-- Manque du code
+    # On tourne a gauche
+    NouvelleDirection = DirectionDepart - pi/2
+  }
+  else{
+    # On tourne a droite
+    NouvelleDirection = DirectionDepart + pi/2
+  }
+  
+  return(NouvelleDirection)
+  
+}
+
+# Fonction qui permet de calculer les nouvelles coordonnees de la personne suite a un deplacement
+#
+# ENTREES:
+#   PositionCourante:   un vecteur contenant la position de la personne pour le moment.
+#                       PositionCourante = c(PositionX, PositionY)
+#   Direction:          la direction vers laquelle la personne va se deplacer.
+#
+# SORITES:
+#   NouvellePosition:   un vecteur contenant la position de la personne apres son deplacement.
+#                       NouvellePosition = c(NouvellePositionX, NouvellePositionY)
+#
+Deplacement = function(PositionCourante, Direction){
+  
+  # A COMPLETER: Calcul des nouvelles coordonnées
+  NouvellePositionX = PositionCourante[1] + sin(Direction)*250 # <-- Manque du code
+  NouvellePositionY = PositionCourante[2] + cos(Direction)*250 # <-- Manque du code
+  
+  # On place les nouvelles positions pour chacune des coordonnees dans un vecteur
+  NouvellePosition = c(NouvellePositionX, NouvellePositionY)
+  
+  return(NouvellePosition)
+}
+```
+
 ```{r}
+# ChangerDirection = function(DirectionDepart, Probabilite){...}
+# Deplacement = function(PositionCourante, Direction){...}
+
 nsteps = 20
 xy = matrix(0,nrow = 21, ncol = 2)
 xy[1,] = c(0,0)
 direction = 0
+probabilite = c(0.5,0.5)
 set.seed(2)
 for(step in 2:(nsteps+1)) {
-    # Ḑe quel côté tourner ?
-    if(runif(1,0,1) < 0.5) {
-      # Tourne à droite
-      direction = direction + pi/2 
-    }
-    else {
-      # Tourne à gauche  
-      direction = direction - pi/2
-    }
-    # Calcul des nouvelles coordonnées
-    xy[step,1] = xy[step-1,1] + sin(direction)*250 
-    xy[step,2] = xy[step-1,2] + cos(direction)*250 
+  
+  # Calcul de la nouvelle direction
+  direction = ChangerDirection(direction, probabilite)
+ 
+  # Calcul des nouvelles coordonnees
+  xy[step,] = Deplacement(xy[step-1,], direction)
 }
 ```
 ]
@@ -1019,8 +1108,8 @@ for(step in 2:(nsteps+1)) {
 
 .pull-right[
 ```{r, echo=FALSE,out.width = '100%', dpi=300, fig.align="center"}
-plot(xy[,1],xy[,2], type = "l", xlim = c(-2000,2000),ylim = c(-2000,2000),
-    xlab = "X", ylab = "Y")
+plot(xy[,1],xy[,2], type = "l", 
+    xlab = "X", ylab = "Y", main = "Déplacement d'un individu")
 points(xy[,1],xy[,2],pch = 19)
 ```
 ]

@@ -48,7 +48,7 @@ class: middle, center, inverse
 &lt;hr width="65%" size="0.3" color="orange" style="margin-top:-20px;"&gt;&lt;/hr&gt;
 
 ---
-# Exercice de fin de séance
+# Exercice
 
 Le fichier [NHL_Complet.csv](./donnees/NHL_Complet.csv) est un sommaire de données individuelles d'environ 100 joueurs de la ligne nationale de hockey. On s'intéresse à connaitre la position jouée par ces joueurs en prenant en compte la division de leur équipe.
 
@@ -110,8 +110,8 @@ alea
 ```
 
 ```
-##  [1] 0.041674923 0.053794831 0.009793995 0.647773913 0.888733803
-##  [6] 0.496235409 0.412440235 0.845579123 0.077957825 0.710202002
+##  [1] 0.9974604 0.3385381 0.1014078 0.9229911 0.8098067 0.1569936 0.6988860
+##  [8] 0.5267658 0.1533002 0.7815901
 ```
 Ici la distribution utilisée est la distribution uniforme, toutes les autres distributions en sont dérivées.
 
@@ -327,8 +327,8 @@ alea
 ```
 
 ```
-##  [1] 0.16752211 0.89841829 0.09101322 0.68039645 0.43268051 0.69898236
-##  [7] 0.22641982 0.35550321 0.46490607 0.62497935
+##  [1] 0.4158788 0.6745312 0.8819218 0.2656673 0.6280368 0.3446457 0.6332759
+##  [8] 0.7320296 0.6540854 0.7201979
 ```
 
 ```r
@@ -336,7 +336,7 @@ min(alea)
 ```
 
 ```
-## [1] 0.09101322
+## [1] 0.2656673
 ```
 
 ```r
@@ -344,7 +344,7 @@ max(alea)
 ```
 
 ```
-## [1] 0.8984183
+## [1] 0.8819218
 ```
 
 ---
@@ -399,8 +399,8 @@ mat
 
 ```
 ##           [,1]      [,2]
-## [1,] 0.9295389 0.1656671
-## [2,] 0.6730226 0.2574862
+## [1,] 0.5257901 0.4488066
+## [2,] 0.6232983 0.3173792
 ```
 
 ```r
@@ -408,7 +408,7 @@ rowSums(mat)
 ```
 
 ```
-## [1] 1.0952060 0.9305088
+## [1] 0.9745967 0.9406775
 ```
 
 ```r
@@ -416,7 +416,7 @@ colSums(mat)
 ```
 
 ```
-## [1] 1.6025614 0.4231533
+## [1] 1.1490884 0.7661858
 ```
 
 ---
@@ -432,8 +432,8 @@ mat
 
 ```
 ##           [,1]      [,2]
-## [1,] 0.9295389 0.1656671
-## [2,] 0.6730226 0.2574862
+## [1,] 0.5257901 0.4488066
+## [2,] 0.6232983 0.3173792
 ```
 
 ```r
@@ -441,7 +441,7 @@ apply(X = mat, MARGIN = 1, FUN = sum)
 ```
 
 ```
-## [1] 1.0952060 0.9305088
+## [1] 0.9745967 0.9406775
 ```
 
 ```r
@@ -449,7 +449,7 @@ apply(X = mat, MARGIN = 2, FUN = sum)
 ```
 
 ```
-## [1] 1.6025614 0.4231533
+## [1] 1.1490884 0.7661858
 ```
 
 ---
@@ -495,9 +495,9 @@ class: middle, center, inverse
 
 Au moyen du fichier [PositionEquipe.csv](./donnees/PositionEquipe.csv), je vous demande de faire les opérations suivantes:
 
-1. Calculer l'abondance totale (ou encore le nombre total) de joueur pour chacune des positions, leur abondance moyenne par équipe et le coefficient de variation de leur abondance ;
-2. Calculer le nombre total de joueurs par équipe ;
-3. Transformer l'abondance absolue (ou encore le nombre total) en abondance relative ;
+1. Calculer le nombre total de joueurs pour chacune des positions, le nombre moyen de joueurs par équipe pour chacune des positions et le coefficient de variation (CV = Écart-type/Moyenne).
+2. Calculer le nombre total de joueurs pour chacune des positions par équipe.
+3. Transformer les valeurs trouvées en (2) en pourcentage.
 
 ---
 
@@ -606,12 +606,12 @@ tableau
 ```
 
 ```
-##            x          y
-## 1 -2.4129746  0.2377787
-## 2 -0.4461350 -0.9677352
-## 3  0.5111722 -1.1538699
-## 4  0.1655858  0.5169555
-## 5  0.7718000 -0.3717666
+##            x           y
+## 1 -1.2165486 -1.04984562
+## 2 -1.1645806 -0.69374419
+## 3 -0.5256619 -0.91993187
+## 4 -0.2786455 -0.06853807
+## 5  0.7973738  0.30923012
 ```
 
 ---
@@ -638,9 +638,9 @@ $$
 ```
 
 ```
-## [1] 0.2637711
-## [1] -0.3053608
-## [1] 0.9177352
+## [1] -0.5635331
+## [1] -0.4347577
+## [1] -0.3345152
 ```
 
 **Problème** - Ce n'est vraiment pas pratique si on a beaucoup de données ou si le format du tableau change.
@@ -660,11 +660,11 @@ for(i in 1:nrow(tableau)){
 ```
 
 ```
-## [1] 0.2637711
-## [1] -0.3053608
-## [1] 0.9177352
-## [1] 0.1254144
-## [1] -0.7172639
+## [1] -0.5635331
+## [1] -0.4347577
+## [1] -0.3345152
+## [1] -0.05500786
+## [1] 0.2228187
 ```
 
 **Problème** - Qu'est-ce qu'on fait si on veut appliquer ce calcul sur plusieurs tableaux ???
@@ -827,7 +827,7 @@ prodsum(vecA, vecB)
 ```
 
 ```
-## [1]  0.2637711 -0.3053608  0.9177352  0.1254144 -0.7172639
+## [1] -0.56353312 -0.43475771 -0.33451522 -0.05500786  0.22281866
 ```
 
 ```r
@@ -835,7 +835,7 @@ prodsum(tableau[,1], tableau[,2])
 ```
 
 ```
-## [1]  0.2637711 -0.3053608  0.9177352  0.1254144 -0.7172639
+## [1] -0.56353312 -0.43475771 -0.33451522 -0.05500786  0.22281866
 ```
 
 ---
@@ -863,7 +863,7 @@ prodsum(vec3, vec4)
 ```
 
 ```
-## [1]  0.2637711 -0.3053608  0.9177352  0.6579050
+## [1] -0.5635331 -0.4347577 -0.3345152 -0.0648827
 ```
 
 ```r
@@ -871,7 +871,7 @@ prodsum(vec2, vec4)
 ```
 
 ```
-## [1]  0.2637711 -0.3053608 -0.7805944 -3.2565680
+## [1] -0.56353312 -0.43475771 -0.52382497 -0.06472865
 ```
 
 ---
@@ -941,12 +941,12 @@ prodsum(tableau, tableau2)
 ```
 
 ```
-##              x           y
-## 1 0.0009419137  0.09073105
-## 2 0.0083249687  0.14982829
-## 3 0.2939517196  0.33437077
-## 4 0.1560707823  0.46899070
-## 5 0.1383921224 -0.48744165
+##            x          y
+## 1 14.8080391  0.9088105
+## 2 -2.3488974 -1.1024759
+## 3  0.6084132  2.2650720
+## 4 -0.3435974 -0.1437031
+## 5  0.5978147  0.2750498
 ```
 
 ---
@@ -990,13 +990,13 @@ test
 
 ```
 ## $moyenne
-## [1] 0.9524057
+## [1] 1.03704
 ## 
 ## $ecart_type
-## [1] 0.4498693
+## [1] 0.5415521
 ## 
 ## $CV
-## [1] 0.4723505
+## [1] 0.5222095
 ```
 
 ---

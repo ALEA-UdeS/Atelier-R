@@ -4,7 +4,7 @@ author: "Jean-Philippe Morissette"
 date: "H2020"
 output:
   xaringan::moon_reader:
-    css: [default, ../bio109.css, "hygge"]
+    css: [default, ../Atelier-R.css, "hygge"]
     lib_dir: assets
     seal: false
     nature:
@@ -163,7 +163,7 @@ destinés à pratiquer les éléments enseignés. L'atelier se terminera avec
 la réalisation d'un exercice intégrateur à compléter à la maison.
 
 L'ensemble du matériel du cours sera disponible sur un dépôt Git à l'adresse :
-https://github.com/EcoNumUdS/BIO109.git
+https://github.com/ALEA-UdeS/Atelier-R
 
 ---
 class: inverse, center, middle
@@ -458,7 +458,7 @@ Les objets en programmation sont définis en fonction de leur dimensionalité.
 
 ## Dimensionalité
 
-- **Dimension 0** : Valeur unique
+- **Dimension 0** : Valeur unique (ou scalaire)
 - **Dimension 1** : Vecteur
 - **Dimension 2** : Matrice
 - **Dimension 3** : ...
@@ -469,7 +469,7 @@ pour le cours nous nous limiterons à des objets en deux dimensions
 
 ---
 
-# Dimension 0
+# Dimension 0: Les scalaires
 
 Ces objets ne contiennent qu'une seule information
 
@@ -485,7 +485,7 @@ gogo = TRUE
 
 ---
 
-# Dimension 1
+# Dimension 1:  Les vecteurs
 
 Ces objets contiennent un série d'information. Chaque valeur
 a une position dans le vecteur, laquelle peut être accédée.
@@ -500,7 +500,7 @@ lettre[3]
 
 ---
 
-# Dimension 2
+# Dimension 2: Les matrices
 
 Ayant deux dimensions, ces objets présentent les données sous forme de matrices et ont des lignes et des colonnes. Pour accéder à une valeur dans une matrice il faut donner la position de la <b>ligne</b> en premier suivit de la position de la <b>colonne</b>.
 
@@ -727,13 +727,13 @@ getwd()
 - Pour les utilisateurs Mac et Linux:
 
 ```{r eval=FALSE}
-setwd("/home/morj2519/Documents/ALEA/H2020/ALEA - R/Atelier_1A")
+setwd("/home/morj2519/Documents/GitHub/Atelier-R/Atelier_1A")
 ```
 
 - Pour les utilisateurs Windows:
 
 ```{r eval=FALSE}
-setwd("c:/morj2519/Documents/ALEA/H2020/ALEA - R/Atelier_1A")
+setwd("C:/Users/morj2519/Documents/GitHub/Atelier-R/Atelier_1A")
 ```
 
 Le `c:` correspond à la partition du disque.
@@ -995,7 +995,6 @@ MonPremierVecteur <- c(1,2,3,4,5)
 MonPremierVecteur
 ```
 
-L'opérateur `c` est appelé l'opérateur de `concaténation`.
 
 **Note** - D'autres méthodes seront présentées plus loin.
 
@@ -1565,7 +1564,7 @@ head(sub_Centres, n=2)
 Le "==" est utilisé pour sélectionner les individus qui sont des joueurs de centre et le symbole "&" pour combiner deux conditions.
 
 ---
-# Exercice de fin de séance
+# Exercice 
 
 Le fichier [NHL_Complet.csv](./donnees/NHL_Complet.csv) est un sommaire de données individuelles d'environ 100 joueurs de la ligne nationale de hockey. On s'intéresse à connaitre la position jouée par ces joueurs en prenant en compte la division de leur équipe.
 

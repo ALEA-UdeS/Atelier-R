@@ -189,7 +189,7 @@ destinés à pratiquer les éléments enseignés. L'atelier se terminera avec
 la réalisation d'un exercice intégrateur à compléter à la maison.
 
 L'ensemble du matériel du cours sera disponible sur un dépôt Git à l'adresse :
-https://github.com/EcoNumUdS/BIO109.git
+https://github.com/ALEA-UdeS/Atelier-R
 
 ---
 class: inverse, center, middle
@@ -484,7 +484,7 @@ Les objets en programmation sont définis en fonction de leur dimensionalité.
 
 ## Dimensionalité
 
-- **Dimension 0** : Valeur unique
+- **Dimension 0** : Valeur unique (ou scalaire)
 - **Dimension 1** : Vecteur
 - **Dimension 2** : Matrice
 - **Dimension 3** : ...
@@ -495,7 +495,7 @@ pour le cours nous nous limiterons à des objets en deux dimensions
 
 ---
 
-# Dimension 0
+# Dimension 0: Les scalaires
 
 Ces objets ne contiennent qu'une seule information
 
@@ -511,7 +511,7 @@ gogo = TRUE
 
 ---
 
-# Dimension 1
+# Dimension 1:  Les vecteurs
 
 Ces objets contiennent un série d'information. Chaque valeur
 a une position dans le vecteur, laquelle peut être accédée.
@@ -526,7 +526,7 @@ lettre[3]
 
 ---
 
-# Dimension 2
+# Dimension 2: Les matrices
 
 Ayant deux dimensions, ces objets présentent les données sous forme de matrices et ont des lignes et des colonnes. Pour accéder à une valeur dans une matrice il faut donner la position de la &lt;b&gt;ligne&lt;/b&gt; en premier suivit de la position de la &lt;b&gt;colonne&lt;/b&gt;.
 
@@ -747,7 +747,7 @@ getwd()
 ```
 
 ```
-## [1] "C:/Users/morj2519/Documents/ALEA/H2020/ALEA - R/Atelier_1A"
+## [1] "C:/Users/morj2519/Documents/GitHub/Atelier-R/Atelier_1A"
 ```
 
 ---
@@ -760,14 +760,14 @@ getwd()
 
 
 ```r
-setwd("/home/morj2519/Documents/ALEA/H2020/ALEA - R/Atelier_1A")
+setwd("/home/morj2519/Documents/GitHub/Atelier-R/Atelier_1A")
 ```
 
 - Pour les utilisateurs Windows:
 
 
 ```r
-setwd("c:/morj2519/Documents/ALEA/H2020/ALEA - R/Atelier_1A")
+setwd("C:/Users/morj2519/Documents/GitHub/Atelier-R/Atelier_1A")
 ```
 
 Le `c:` correspond à la partition du disque.
@@ -1169,7 +1169,6 @@ MonPremierVecteur
 ## [1] 1 2 3 4 5
 ```
 
-L'opérateur `c` est appelé l'opérateur de `concaténation`.
 
 **Note** - D'autres méthodes seront présentées plus loin.
 
@@ -1453,9 +1452,9 @@ MaPremiereMatrice
 ```
 
 ```
-##          [,1]     [,2]       [,3]     [,4]     [,5]
-## [1,] 87.75042 50.19782 26.3178931 22.85434 34.57719
-## [2,] 84.12919 81.37373  0.5040643 70.72812 20.93454
+##          [,1]     [,2]     [,3]     [,4]     [,5]
+## [1,] 96.39474 97.36567 1.388519 62.32791 83.27007
+## [2,] 48.63287 67.37647 6.647475 65.06831 67.27254
 ```
 
 ```r
@@ -1463,7 +1462,7 @@ sum(MaPremiereMatrice[,1])
 ```
 
 ```
-## [1] 171.8796
+## [1] 145.0276
 ```
 
 
@@ -2014,8 +2013,8 @@ tri
 ```
 
 ```
-##  [1] 67.06726209 94.07050433 15.58871639 82.61714457 63.00908499
-##  [6]  0.04014177 19.82927769 75.72447162 61.77211090 30.70954639
+##  [1] 52.36562 58.03212 50.11564 79.18660 53.12758 14.44866 68.27751
+##  [8] 39.82650 66.78491 96.79876
 ```
 
 ```r
@@ -2023,8 +2022,8 @@ sort(tri)
 ```
 
 ```
-##  [1]  0.04014177 15.58871639 19.82927769 30.70954639 61.77211090
-##  [6] 63.00908499 67.06726209 75.72447162 82.61714457 94.07050433
+##  [1] 14.44866 39.82650 50.11564 52.36562 53.12758 58.03212 66.78491
+##  [8] 68.27751 79.18660 96.79876
 ```
 
 ---
@@ -2037,8 +2036,8 @@ rang
 ```
 
 ```
-##  [1] 72.2551869 92.2026434 28.1958627 83.1018308 66.5004749 56.7423971
-##  [7] 86.3688571 10.3057559  0.2741904 45.8796225
+##  [1]  7.638092 59.008517 65.320309 58.291962 90.813781 42.897253 46.363461
+##  [8]  6.552614 66.323973 89.407863
 ```
 
 ```r
@@ -2046,7 +2045,7 @@ rank(rang)
 ```
 
 ```
-##  [1]  7 10  3  8  6  5  9  2  1  4
+##  [1]  2  6  7  5 10  3  4  1  8  9
 ```
 
 ---
@@ -2094,7 +2093,7 @@ head(sub_Centres, n=2)
 Le "==" est utilisé pour sélectionner les individus qui sont des joueurs de centre et le symbole "&amp;" pour combiner deux conditions.
 
 ---
-# Exercice de fin de séance
+# Exercice 
 
 Le fichier [NHL_Complet.csv](./donnees/NHL_Complet.csv) est un sommaire de données individuelles d'environ 100 joueurs de la ligne nationale de hockey. On s'intéresse à connaitre la position jouée par ces joueurs en prenant en compte la division de leur équipe.
 

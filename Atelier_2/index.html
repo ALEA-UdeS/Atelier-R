@@ -217,23 +217,6 @@ Imaginez cependant que vous découvrez un jour qu'un passionné des salamandres 
 La semaine dernière, nous avons vu comment généraliser une séquence d'opérations au moyen d'une fonction. Comment est-ce qu'on peut généraliser des opérations qui sont répétées très souvent ? C'est le principe de la boucle.
 
 ---
-# Mise en situation
-
-La solution ressemblerait à
-
-
-```r
-n_sites &lt;- ncol(donnees)
-n_annees &lt;- nrow(donnees)
-lambda &lt;- matrix(nrow = n_annees-1, ncol = sites)
-for(i in 2:n_annees) {
-    for(j in 1:n_sites) {
-        lambda[i-1,j] &lt;- (donnees[i,j] - donnees[i-1,j]) / donnees[i-1,j]
-    }   
-}
-```
-
----
 # Définition
 
 Une boucle est une commande qui permet de répéter une série d'instructions sous des conditions définies de départ et de fin. C'est une commande de base de l'algorithmique.
@@ -301,7 +284,7 @@ for(etape in 1:5) {
 ```
 
 ---
-# Un premier exercice simple
+# Exercice
 
 Transformez en fahrenheit une séquence de température en celsius qui va de -50 à 100, par bond de 1. Rappelez vous que la conversion est `\(1.8*C + 32\)`.
 
@@ -310,7 +293,7 @@ Transformez en fahrenheit une séquence de température en celsius qui va de -50
 - Faites le calcul approprié
 
 ---
-# Un premier exercice simple
+# Exercice
 
 
 ```r
@@ -487,11 +470,11 @@ for(etape in 1:5) {
 ```
 
 ```
-## [1] 0.3172125
-## [1] 0.863756
-## [1] 0.2926358
-## [1] 0.930266
-## [1] 0.08787028
+## [1] 0.6094816
+## [1] 0.4526052
+## [1] 0.1480766
+## [1] 0.1254488
+## [1] 0.04900929
 ```
 
 ---
@@ -607,6 +590,37 @@ ma_matrice
 ```
 
 ---
+
+# Retour sur la mise en situation
+
+Vous étudiez la démographie de la population de salamandres pourpres dans le ruisseau du massif des monts Sutton. Vos données sont très simples, vous avez une mesure d'abondance à deux points d'échantillonnage au long du ruisseau. Vous devez vérifier si la population est en croissance, stable ou en déclin sur une séquence de 5 ans. Le taux de croissance est donné par l'équation suivante :
+
+$$
+\dfrac{N_{t+1} - N_t}{N_t}
+$$
+
+On se souvient que c'est assez fastidieux de refaire cet exercice à la main, mais c'est faisable.
+
+Imaginez cependant que vous découvrez un jour qu'un passionné des salamandres a déjà fait une étude similaire sur ce site, et par miracle vous obtenez des séries temporelles de 50 ans réparties sur 10 points d'échantillonnage. Il faudra changer de technique....
+
+---
+# Retour sur la mise en situation
+
+La solution ressemblerait à
+
+
+```r
+n_sites &lt;- ncol(donnees)
+n_annees &lt;- nrow(donnees)
+lambda &lt;- matrix(nrow = n_annees-1, ncol = sites)
+for(i in 2:n_annees) {
+    for(j in 1:n_sites) {
+        lambda[i-1,j] &lt;- (donnees[i,j] - donnees[i-1,j]) / donnees[i-1,j]
+    }   
+}
+```
+
+---
 # La boucle while
 
 La boucle de type *while*, pour 'pendant', répète une série d'intructions tant qu'une condition n'a pas été atteinte. C'est une version générale de la boucle *for*. Par exemple, on peut tirer deux pièces de monnaie jusqu'à ce que l'on obtienne la combinaison pile-pile.
@@ -625,11 +639,12 @@ while(combinaison != "pile-pile") {
 
 ```
 ## [1] "face-pile"
-## [1] "face-face"
-## [1] "face-face"
-## [1] "face-face"
 ## [1] "face-pile"
+## [1] "face-pile"
+## [1] "face-face"
 ## [1] "pile-face"
+## [1] "pile-face"
+## [1] "face-face"
 ## [1] "face-pile"
 ## [1] "pile-pile"
 ```
@@ -660,7 +675,7 @@ mean(res)
 ```
 
 ```
-## [1] 6.0525
+## [1] 6.0037
 ```
 
 ---
@@ -796,7 +811,7 @@ test = function(jour) {
 L'indentation (l'utilisation d'espaces dans le code) est fort utile pour s'y retrouver lorsque les conditions deviennent nombreuses. Reprenons l'exemple précédent.
 
 ---
-# Arbre décisionnel
+# Astuce (comparaison)
 
 
 ```r
@@ -821,7 +836,7 @@ print("Bof, j'ai encore du temps !")
 ```
 
 ---
-# Arbre décisionnel
+# Astuce (comparaison)
 
 
 ```r
@@ -891,16 +906,16 @@ cbind(X,res)
 
 ```
 ##       X                   res         
-##  [1,] "0.223669568542391" "plus petit"
-##  [2,] "0.395183282205835" "plus grand"
-##  [3,] "0.845033577876166" "plus grand"
-##  [4,] "0.108332220464945" "plus petit"
-##  [5,] "0.249275591224432" "plus petit"
-##  [6,] "0.290889850119129" "plus petit"
-##  [7,] "0.642620470840484" "plus grand"
-##  [8,] "0.803172507090494" "plus grand"
-##  [9,] "0.420607441337779" "plus grand"
-## [10,] "0.222812543157488" "plus petit"
+##  [1,] "0.183863036334515" "plus petit"
+##  [2,] "0.158284286269918" "plus petit"
+##  [3,] "0.497231239220127" "plus grand"
+##  [4,] "0.122568098129705" "plus petit"
+##  [5,] "0.561312662903219" "plus grand"
+##  [6,] "0.491836695466191" "plus grand"
+##  [7,] "0.294463182101026" "plus petit"
+##  [8,] "0.738069112179801" "plus grand"
+##  [9,] "0.910619804402813" "plus grand"
+## [10,] "0.606380555778742" "plus grand"
 ```
 ]
 
@@ -945,16 +960,16 @@ cbind(X,res2)
 
 ```
 ##       X                   res2 
-##  [1,] "0.223669568542391" "oui"
-##  [2,] "0.395183282205835" "oui"
-##  [3,] "0.845033577876166" "non"
-##  [4,] "0.108332220464945" "non"
-##  [5,] "0.249275591224432" "oui"
-##  [6,] "0.290889850119129" "oui"
-##  [7,] "0.642620470840484" "non"
-##  [8,] "0.803172507090494" "non"
-##  [9,] "0.420607441337779" "oui"
-## [10,] "0.222812543157488" "oui"
+##  [1,] "0.183863036334515" "non"
+##  [2,] "0.158284286269918" "non"
+##  [3,] "0.497231239220127" "oui"
+##  [4,] "0.122568098129705" "non"
+##  [5,] "0.561312662903219" "oui"
+##  [6,] "0.491836695466191" "oui"
+##  [7,] "0.294463182101026" "oui"
+##  [8,] "0.738069112179801" "non"
+##  [9,] "0.910619804402813" "non"
+## [10,] "0.606380555778742" "non"
 ```
 ]
 
@@ -981,16 +996,16 @@ cbind(X,res2)
 
 ```
 ##       X                   res2 
-##  [1,] "0.223669568542391" "oui"
-##  [2,] "0.395183282205835" "oui"
-##  [3,] "0.845033577876166" "non"
-##  [4,] "0.108332220464945" "non"
-##  [5,] "0.249275591224432" "oui"
-##  [6,] "0.290889850119129" "oui"
-##  [7,] "0.642620470840484" "non"
-##  [8,] "0.803172507090494" "non"
-##  [9,] "0.420607441337779" "oui"
-## [10,] "0.222812543157488" "oui"
+##  [1,] "0.183863036334515" "non"
+##  [2,] "0.158284286269918" "non"
+##  [3,] "0.497231239220127" "oui"
+##  [4,] "0.122568098129705" "non"
+##  [5,] "0.561312662903219" "oui"
+##  [6,] "0.491836695466191" "oui"
+##  [7,] "0.294463182101026" "oui"
+##  [8,] "0.738069112179801" "non"
+##  [9,] "0.910619804402813" "non"
+## [10,] "0.606380555778742" "non"
 ```
 ]
 
@@ -1083,7 +1098,7 @@ tirage(3, cartes)
 ```
 
 ```
-## [1] "as - carreau" "5 - pique"    "as - coeur"
+## [1] "9 - trèfle"  "2 - carreau" "6 - coeur"
 ```
 
 ---
@@ -1161,7 +1176,7 @@ rbinom(n = 10, size = 1, prob = 0.5)
 ```
 
 ```
-##  [1] 0 1 0 1 1 0 0 0 0 1
+##  [1] 0 0 1 0 0 1 0 0 0 0
 ```
 ]
 
@@ -1184,11 +1199,11 @@ rmultinom(n = 3, size = 1, prob = rep(1/6, 6))
 
 ```
 ##      [,1] [,2] [,3]
-## [1,]    0    0    0
-## [2,]    1    1    0
+## [1,]    0    1    0
+## [2,]    0    0    1
 ## [3,]    0    0    0
-## [4,]    0    0    1
-## [5,]    0    0    0
+## [4,]    0    0    0
+## [5,]    1    0    0
 ## [6,]    0    0    0
 ```
 ]
@@ -1223,7 +1238,16 @@ class: middle, center, inverse
 &lt;hr width="65%" size="0.3" color="orange" style="margin-top:-20px;"&gt;&lt;/hr&gt;
 
 ---
-# Principe
+
+# Pourquoi "prise de décision" ?
+
+On peut trouver au milieu d'un algorithme un élément décisionnel aléatoire. Par exemple, la survie d'un individu suite à un évènement grave (AVC, accident de voiture, etc). Bien que l'on ne dispose pas nécessairement de cette information précise (ici la survie de l'individu) il est néanmoins possible, si l'on dispose de la distribution de probabilité associée à l'évènement aléatoire, de rendre notre algorithme fonctionnel.
+
+Remarquons que dans ce genre de situations, ce n'est pas le comportement d'un individu en particulier qui nous intéresse, mais plutôt le comportement global (d'une masse d'individus) ou encore le comportement à long terme (s'il s'agit d'un phénomène temporel). Malgré cela, on devra quand même pouvoir simuler le comportement, ou encore la &lt;b&gt; prise de décision &lt;/b&gt;, de chacun des individus afin d'avoir une idée des tendances globales.
+
+---
+
+# Exemple
 ## L'épreuve de Bernoulli
 
 - Une épreuve de Bernoulli est une expérience aléatoire (un tirage) avec deux issues : succès ou échec;
@@ -1231,7 +1255,7 @@ class: middle, center, inverse
 - La probabilité de succès est représentée par le paramètre `p`, alors que la probabilité d'un échec est représentée par `1-p`;
 
 ---
-# Principe
+# Exemple
 ## L'épreuve de Bernoulli
 
 **Exemple des jeux de hasard:** la pièce de monnaie
@@ -1240,14 +1264,16 @@ class: middle, center, inverse
 
 - Quel est le sexe du nouveau-né?
 - Est-ce qu'une personne susceptible sera contaminée par une virus après avoir été en contact avec une personne infectée?
-- Est-ce qu'il y a un as sur le dessus du paquet de cartes?
 - Dans une manufacture, est-ce qu'un pièce pourra passer l'étape du triage?
 - Déterminer si un électeur votera **oui** dans un prochain référendum.
+- Déterminer les parts d'un marché après plusieurs campagnes publicitaires.
 
 ---
 # Simuler un tirage de Bernoulli
 
-Lorsque `\(p = 0.5\)`, on tire une pièce de monnaie. Mais qu'en est-il si la pièce est biaisée, par exemple si la face est plus lourde et donc la probabilité d'obtenir pile est de `\(p = 0.55\)` ?
+Dans le cas classique du lancer d'une pièce de monnaie, on utilise `\(p = 0.5\)`. 
+
+Mais qu'en est-il si la pièce est biaisée, par exemple si la face est plus lourde et donc la probabilité d'obtenir pile est de `\(p = 0.55\)` ?
 
 
 ```r
@@ -1263,43 +1289,50 @@ res
 ```
 
 ---
-# En d'autres mots...
+# Comprendre la tendance globale
 
-Si `\(U\)` est une variable aléatoire distribuée selon la loi uniforme entre 0 et 1, alors la chance que `\(U &lt; p\)` est exactement de valeur `\(p\)`. Si on réalise `\(n\)` tirage, alors l'espérance du nombre de succès est exactement `\(np\)`.
+
+Si `\(U\)` est une variable aléatoire distribuée selon la loi uniforme entre 0 et 1, alors la chance que `\(U &lt; p\)` est exactement de valeur `\(p\)`. Si on réalise `\(n\)` tirage, alors le nombre moyen de succès (aussi appelé l'espérance du nombre moyen de succès) est exactement `\(np\)`.
+
+&lt;div style='text-align:center;'&gt;
+&lt;img src="assets/img/Uniforme_Proba.png" width="50%"&gt;&lt;/img&gt;
+&lt;/div&gt;
 
 ---
 
 # Un exemple vaut mille mots
 
-- Tirez au hasard 1000 chiffres de la loi uniforme bornée entre 0 et 1
-- Créez un vecteur 'res' rempli de 0 et de 1000 unités de longueur
+- Tirez au hasard 10 000 chiffres de la loi uniforme bornée entre 0 et 1
+- Créez un vecteur 'res' rempli de 0 et de 10 000 unités de longueur
 - Pour chaque valeur de la séquence, évaluez si le chiffre est plus petit que la valeur seuil de `\(p = 0.2\)`. Si la valeur est plus petite, inscrivez 1 dans le vecteur 'res' à la position correspondante
 - Combien de fois est-ce que la valeur est inférieure à `\(p\)` ?
 - Essayez à nouveau et comparez.
 
 ---
 
-# Un exemple vaut mille mots
+# Solution
+
+
 
 
 ```r
-X &lt;- runif(n = 1000, min = 0, max = 1)
+X &lt;- runif(n = 10000, min = 0, max = 1)
 p = 0.2
-res &lt;- numeric(length = 1000)
+res &lt;- numeric(length = 10000)
 res[X&lt;p] &lt;- 1
 sum(res)
 ```
 
 ```
-## [1] 200
+## [1] 2012
 ```
 
 ```r
-1000*p
+10000*p
 ```
 
 ```
-## [1] 200
+## [1] 2000
 ```
 
 ---
@@ -1312,7 +1345,13 @@ Vous observez une personne ivre à la sortie d'un bar prendre sa voiture. Vous a
 - À chaque intersection, votre conducteur ivre tourne à gauche ou à droite avec une probabilité de 0.5;
 - Il faut environ 30 secondes à votre conducteur pour parcourir la distance entre deux arrêts.
 
-Calculez la distance parcourue en X et en Y, puis reprenez votre calcul une centaine de fois pour estimer la distance moyenne parcourue (à vol d'oiseau).
+---
+
+# Un exercice est encore plus efficace...
+
+Calculez la distance parcourue en X et en Y, puis reprenez votre calcul une centaine de fois pour estimer la distance moyenne parcourue entre le point de départ et la fin du parcours de notre individu (à vol d'oiseau).
+
+Vous pouvez utiliser le fichier [Deplacement_Grille_Incomplet.R](./donnees/Deplacement_Grille_Incomplet.R) pour vous aider. Ce fichier contient une partie des fonctions qui gèrent le changement de direction et le déplacement de l'individu.
 
 ---
 # Solution
@@ -1320,32 +1359,32 @@ Calculez la distance parcourue en X et en Y, puis reprenez votre calcul une cent
 .pull-left[
 
 
+
+
 ```r
+# ChangerDirection = function(DirectionDepart, Probabilite){...}
+# Deplacement = function(PositionCourante, Direction){...}
+
 nsteps = 20
 xy = matrix(0,nrow = 21, ncol = 2)
 xy[1,] = c(0,0)
 direction = 0
+probabilite = c(0.5,0.5)
 set.seed(2)
 for(step in 2:(nsteps+1)) {
-    # Ḑe quel côté tourner ?
-    if(runif(1,0,1) &lt; 0.5) {
-      # Tourne à droite
-      direction = direction + pi/2 
-    }
-    else {
-      # Tourne à gauche  
-      direction = direction - pi/2
-    }
-    # Calcul des nouvelles coordonnées
-    xy[step,1] = xy[step-1,1] + sin(direction)*250 
-    xy[step,2] = xy[step-1,2] + cos(direction)*250 
+  
+  # Calcul de la nouvelle direction
+  direction = ChangerDirection(direction, probabilite)
+ 
+  # Calcul des nouvelles coordonnees
+  xy[step,] = Deplacement(xy[step-1,], direction)
 }
 ```
 ]
 
 
 .pull-right[
-&lt;img src="index_files/figure-html/unnamed-chunk-46-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="index_files/figure-html/unnamed-chunk-48-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 ]
 
 
@@ -1513,7 +1552,7 @@ for(step in 2:nsteps) {
 ---
 # Solution
 
-&lt;img src="index_files/figure-html/unnamed-chunk-52-1.png" width="55%" style="display: block; margin: auto;" /&gt;
+&lt;img src="index_files/figure-html/unnamed-chunk-54-1.png" width="55%" style="display: block; margin: auto;" /&gt;
 
 
 ---
@@ -1563,7 +1602,7 @@ system.time(tri(x))
 
 ```
 ##    user  system elapsed 
-##    0.25    0.00    0.25
+##    0.26    0.00    0.26
 ```
 
 ---
@@ -1588,7 +1627,7 @@ plot(n,res, type = "l", xlab = "Taille",
 
 .pull-right[
 
-&lt;img src="index_files/figure-html/unnamed-chunk-55-1.png" width="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="index_files/figure-html/unnamed-chunk-57-1.png" width="100%" style="display: block; margin: auto;" /&gt;
 
 ]
 
@@ -1632,7 +1671,7 @@ system.time(f2(x))
 
 ```
 ##    user  system elapsed 
-##    0.01    0.00    0.02
+##       0       0       0
 ```
 ]
 
@@ -1674,7 +1713,7 @@ system.time(f1(X))
 ##    user  system elapsed 
 ##       0       0       0 
 ##    user  system elapsed 
-##    0.76    0.00    0.78
+##    0.71    0.00    0.70
 ```
 ]
 
