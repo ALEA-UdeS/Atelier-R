@@ -6,7 +6,7 @@
     <meta name="author" content="Jean-Philippe Morissette" />
     <link href="assets/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="assets/remark-css-0.0.1/hygge.css" rel="stylesheet" />
-    <link rel="stylesheet" href="..\bio109.css" type="text/css" />
+    <link rel="stylesheet" href="..\Atelier-R.css" type="text/css" />
   </head>
   <body>
     <textarea id="source">
@@ -189,7 +189,7 @@ destinés à pratiquer les éléments enseignés. L'atelier se terminera avec
 la réalisation d'un exercice intégrateur à compléter à la maison.
 
 L'ensemble du matériel du cours sera disponible sur un dépôt Git à l'adresse :
-https://github.com/EcoNumUdS/BIO109.git
+https://github.com/ALEA-UdeS/Atelier-R
 
 ---
 class: inverse, center, middle
@@ -484,7 +484,7 @@ Les objets en programmation sont définis en fonction de leur dimensionalité.
 
 ## Dimensionalité
 
-- **Dimension 0** : Valeur unique
+- **Dimension 0** : Valeur unique (ou scalaire)
 - **Dimension 1** : Vecteur
 - **Dimension 2** : Matrice
 - **Dimension 3** : ...
@@ -495,7 +495,7 @@ pour le cours nous nous limiterons à des objets en deux dimensions
 
 ---
 
-# Dimension 0
+# Dimension 0: Les scalaires
 
 Ces objets ne contiennent qu'une seule information
 
@@ -511,7 +511,7 @@ gogo = TRUE
 
 ---
 
-# Dimension 1
+# Dimension 1:  Les vecteurs
 
 Ces objets contiennent un série d'information. Chaque valeur
 a une position dans le vecteur, laquelle peut être accédée.
@@ -526,7 +526,7 @@ lettre[3]
 
 ---
 
-# Dimension 2
+# Dimension 2: Les matrices
 
 Ayant deux dimensions, ces objets présentent les données sous forme de matrices et ont des lignes et des colonnes. Pour accéder à une valeur dans une matrice il faut donner la position de la &lt;b&gt;ligne&lt;/b&gt; en premier suivit de la position de la &lt;b&gt;colonne&lt;/b&gt;.
 
@@ -760,14 +760,14 @@ getwd()
 
 
 ```r
-setwd("/home/morj2519/Documents/ALEA/H2020/ALEA - R/Atelier_1A")
+setwd("/home/morj2519/Documents/GitHub/Atelier-R/Atelier_1A")
 ```
 
 - Pour les utilisateurs Windows:
 
 
 ```r
-setwd("c:/morj2519/Documents/ALEA/H2020/ALEA - R/Atelier_1A")
+setwd("C:/Users/morj2519/Documents/GitHub/Atelier-R/Atelier_1A")
 ```
 
 Le `c:` correspond à la partition du disque.
@@ -805,7 +805,8 @@ dir()
 ```
 
 ```
-## [1] "assets"      "donnees"     "index.html"  "index.Rmd"   "index_files"
+## [1] "assets"        "donnees"       "index.html"    "index.Rmd"    
+## [5] "index_files"   "MaListe.Rdata"
 ```
 
 ## Obtenir la liste des objets en mémoire
@@ -1168,7 +1169,6 @@ MonPremierVecteur
 ## [1] 1 2 3 4 5
 ```
 
-L'opérateur `c` est appelé l'opérateur de `concaténation`.
 
 **Note** - D'autres méthodes seront présentées plus loin.
 
@@ -1452,9 +1452,9 @@ MaPremiereMatrice
 ```
 
 ```
-##           [,1]     [,2]     [,3]     [,4]     [,5]
-## [1,] 70.953247 59.23449 13.58345 71.94868 58.85278
-## [2,]  3.349781  7.00301 71.13120 80.66028 58.65813
+##          [,1]     [,2]     [,3]     [,4]     [,5]
+## [1,] 96.39474 97.36567 1.388519 62.32791 83.27007
+## [2,] 48.63287 67.37647 6.647475 65.06831 67.27254
 ```
 
 ```r
@@ -1462,7 +1462,7 @@ sum(MaPremiereMatrice[,1])
 ```
 
 ```
-## [1] 74.30303
+## [1] 145.0276
 ```
 
 
@@ -2013,8 +2013,8 @@ tri
 ```
 
 ```
-##  [1] 73.5541028 96.5078623 29.9242207  0.5447346 22.5334257 22.1839746
-##  [7] 20.3982947 29.4335219  2.6750568 48.9945598
+##  [1] 52.36562 58.03212 50.11564 79.18660 53.12758 14.44866 68.27751
+##  [8] 39.82650 66.78491 96.79876
 ```
 
 ```r
@@ -2022,8 +2022,8 @@ sort(tri)
 ```
 
 ```
-##  [1]  0.5447346  2.6750568 20.3982947 22.1839746 22.5334257 29.4335219
-##  [7] 29.9242207 48.9945598 73.5541028 96.5078623
+##  [1] 14.44866 39.82650 50.11564 52.36562 53.12758 58.03212 66.78491
+##  [8] 68.27751 79.18660 96.79876
 ```
 
 ---
@@ -2036,8 +2036,8 @@ rang
 ```
 
 ```
-##  [1]  7.082476 37.735504 64.172407 12.693190 59.392006 36.897074 40.972146
-##  [8] 77.114820 58.575569 63.471473
+##  [1]  7.638092 59.008517 65.320309 58.291962 90.813781 42.897253 46.363461
+##  [8]  6.552614 66.323973 89.407863
 ```
 
 ```r
@@ -2045,7 +2045,7 @@ rank(rang)
 ```
 
 ```
-##  [1]  1  4  9  2  7  3  5 10  6  8
+##  [1]  2  6  7  5 10  3  4  1  8  9
 ```
 
 ---
@@ -2093,7 +2093,7 @@ head(sub_Centres, n=2)
 Le "==" est utilisé pour sélectionner les individus qui sont des joueurs de centre et le symbole "&amp;" pour combiner deux conditions.
 
 ---
-# Exercice de fin de séance
+# Exercice 
 
 Le fichier [NHL_Complet.csv](./donnees/NHL_Complet.csv) est un sommaire de données individuelles d'environ 100 joueurs de la ligne nationale de hockey. On s'intéresse à connaitre la position jouée par ces joueurs en prenant en compte la division de leur équipe.
 

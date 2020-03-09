@@ -4,7 +4,7 @@ author: "Jean-Philippe Morissette"
 date: "H2020"
 output:
   xaringan::moon_reader:
-    css: [default, ../bio109.css, "hygge"]
+    css: [default, ../Atelier-R.css, "hygge"]
     lib_dir: assets
     seal: false
     nature:
