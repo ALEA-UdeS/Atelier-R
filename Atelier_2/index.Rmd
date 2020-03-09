@@ -978,7 +978,7 @@ res
 Si $U$ est une variable aléatoire distribuée selon la loi uniforme entre 0 et 1, alors la chance que $U < p$ est exactement de valeur $p$. Si on réalise $n$ tirage, alors le nombre moyen de succès (aussi appelé l'espérance du nombre moyen de succès) est exactement $np$.
 
 <div style='text-align:center;'>
-<img src="assets/img/Uniforme_Proba.png" width="50%"></img>
+<img src="assets/img/Uniforme_Proba.PNG" width="50%"></img>
 </div>
 
 ---
