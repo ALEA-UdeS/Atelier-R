@@ -288,7 +288,7 @@ class: inverse, middle, center
 
 - *En programmation, le `pseudo-code` est une façon de formuler un <b>algorithme</b> sans référence à un langage de programmation en particulier.*
 
-> - *Un <b>algorithme</b> est une suite d'actions qui sont réalisées dans un ordre précis par l'ordinateur. C'est une séquence d'étapes dans la résolution d'un problème.*
+> - *Un <b>algorithme</b> est une suite d'actions qui sont réalisées dans un ordre précis. C'est une séquence d'étapes dans la résolution d'un problème.*
 
 
 ---
@@ -298,16 +298,16 @@ class: inverse, middle, center
 ## Exemple
 
 ```
-PROGRAM DEMO
-  FOR t IN 1:100
+PROGRAMME DEMO
+  POUR CHAQUE VALEUR DE t ALLANT DE 1 À 100
     n_t = n_t * lambda
-    PRINT n_t
-    IF n_t < 1
-      BREAK
-    ELSE
-      CONTINUE
-    END IF
-  END FOR
+    AFFICHER n_t
+    SI n_t < 1
+      ARRETER
+    SINON
+      CONTINUER
+    FIN DU "SI"
+  FIN DU "POUR CHAQUE"
 ```
 
 Le programme `DEMO` fait croitre une population de taille initiale $n_t$ à un taux $\lambda$ et affiche à l'utilisateur si la population est éteinte $n_t<1$ ou vivante $n_t>1$.
@@ -319,16 +319,16 @@ Le programme `DEMO` fait croitre une population de taille initiale $n_t$ à un t
 ## Exemple
 
 ```
-PROGRAM DEMO
-  FOR t IN 1:100 <------------- Opération itérative
+PROGRAMME DEMO
+  POUR CHAQUE VALEUR DE t ALLANT DE 1 À 100 <--- Opération itérative
     n_t = n_t * lambda
-    PRINT n_t <---------------- Le programme affiche la valeur à l'écran
-    IF n_t < 1 <--------------- Opération décisionnelle
-      BREAK <------------------ Le programme arrête son éxécution
-    ELSE
-      CONTINUE <--------------- Le programme continue son éxécution
-    END IF
-  END FOR
+    AFFICHER n_t <------------- Le programme affiche la valeur à l'écran
+    SI n_t < 1 <--------------- Opération décisionnelle
+      ARRETER <---------------- Le programme arrête son éxécution
+    SINON
+      CONTINUER <-------------- Le programme continue son éxécution
+    FIN DU "SI"
+  FIN DU "POUR CHAQUE"
 ```
 
 Le programme `DEMO` fait croitre une population de taille initiale $n_t$ à un taux $\lambda$ et affiche à l'utilisateur si la population est éteinte $n_t<1$ ou vivante $n_t>1$.
@@ -364,9 +364,9 @@ Avant de décrire chacune des opérations d'un algorithme, certaines instruction
 
 ```
 PROGRAM AIRE_REC
-  READ hauteur
-  READ largeur
-  WRITE hauteur * largeur
+  ENTRER hauteur
+  ENTRER largeur
+  ÉCRIRE hauteur * largeur
 ```
 
 Chaque opération est effectuée l'une après l'autre dans un ordre déterminé.
@@ -441,7 +441,7 @@ PROGRAM DEMO
 PROGRAM DEMO
   IF lambda > 0
     PRINT "La population est croissante"
-  IF ELSE lambda < 0
+  ELSE IF lambda < 0
     PRINT "La population est décroissante"
   ELSE
     PRINT "Absence de croissance"

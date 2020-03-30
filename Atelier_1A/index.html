@@ -314,7 +314,7 @@ class: inverse, middle, center
 
 - *En programmation, le `pseudo-code` est une façon de formuler un &lt;b&gt;algorithme&lt;/b&gt; sans référence à un langage de programmation en particulier.*
 
-&gt; - *Un &lt;b&gt;algorithme&lt;/b&gt; est une suite d'actions qui sont réalisées dans un ordre précis par l'ordinateur. C'est une séquence d'étapes dans la résolution d'un problème.*
+&gt; - *Un &lt;b&gt;algorithme&lt;/b&gt; est une suite d'actions qui sont réalisées dans un ordre précis. C'est une séquence d'étapes dans la résolution d'un problème.*
 
 
 ---
@@ -324,16 +324,16 @@ class: inverse, middle, center
 ## Exemple
 
 ```
-PROGRAM DEMO
-  FOR t IN 1:100
+PROGRAMME DEMO
+  POUR CHAQUE VALEUR DE t ALLANT DE 1 À 100
     n_t = n_t * lambda
-    PRINT n_t
-    IF n_t &lt; 1
-      BREAK
-    ELSE
-      CONTINUE
-    END IF
-  END FOR
+    AFFICHER n_t
+    SI n_t &lt; 1
+      ARRETER
+    SINON
+      CONTINUER
+    FIN DU "SI"
+  FIN DU "POUR CHAQUE"
 ```
 
 Le programme `DEMO` fait croitre une population de taille initiale `\(n_t\)` à un taux `\(\lambda\)` et affiche à l'utilisateur si la population est éteinte `\(n_t&lt;1\)` ou vivante `\(n_t&gt;1\)`.
@@ -345,16 +345,16 @@ Le programme `DEMO` fait croitre une population de taille initiale `\(n_t\)` à 
 ## Exemple
 
 ```
-PROGRAM DEMO
-  FOR t IN 1:100 &lt;------------- Opération itérative
+PROGRAMME DEMO
+  POUR CHAQUE VALEUR DE t ALLANT DE 1 À 100 &lt;--- Opération itérative
     n_t = n_t * lambda
-    PRINT n_t &lt;---------------- Le programme affiche la valeur à l'écran
-    IF n_t &lt; 1 &lt;--------------- Opération décisionnelle
-      BREAK &lt;------------------ Le programme arrête son éxécution
-    ELSE
-      CONTINUE &lt;--------------- Le programme continue son éxécution
-    END IF
-  END FOR
+    AFFICHER n_t &lt;------------- Le programme affiche la valeur à l'écran
+    SI n_t &lt; 1 &lt;--------------- Opération décisionnelle
+      ARRETER &lt;---------------- Le programme arrête son éxécution
+    SINON
+      CONTINUER &lt;-------------- Le programme continue son éxécution
+    FIN DU "SI"
+  FIN DU "POUR CHAQUE"
 ```
 
 Le programme `DEMO` fait croitre une population de taille initiale `\(n_t\)` à un taux `\(\lambda\)` et affiche à l'utilisateur si la population est éteinte `\(n_t&lt;1\)` ou vivante `\(n_t&gt;1\)`.
@@ -390,9 +390,9 @@ Avant de décrire chacune des opérations d'un algorithme, certaines instruction
 
 ```
 PROGRAM AIRE_REC
-  READ hauteur
-  READ largeur
-  WRITE hauteur * largeur
+  ENTRER hauteur
+  ENTRER largeur
+  ÉCRIRE hauteur * largeur
 ```
 
 Chaque opération est effectuée l'une après l'autre dans un ordre déterminé.
@@ -467,7 +467,7 @@ PROGRAM DEMO
 PROGRAM DEMO
   IF lambda &gt; 0
     PRINT "La population est croissante"
-  IF ELSE lambda &lt; 0
+  ELSE IF lambda &lt; 0
     PRINT "La population est décroissante"
   ELSE
     PRINT "Absence de croissance"
@@ -817,7 +817,8 @@ ls()
 ```
 
 ```
-## [1] "ButsDesNumPos" "NHL"
+## [1] "binary"        "ButsDesNumPos" "message"       "NHL"          
+## [5] "owd"
 ```
 
 ---
@@ -833,7 +834,8 @@ ls()
 ```
 
 ```
-## [1] "ButsDesNumPos" "NHL"           "test"
+## [1] "binary"        "ButsDesNumPos" "message"       "NHL"          
+## [5] "owd"           "test"
 ```
 
 ```r
@@ -842,7 +844,8 @@ ls()
 ```
 
 ```
-## [1] "ButsDesNumPos" "NHL"
+## [1] "binary"        "ButsDesNumPos" "message"       "NHL"          
+## [5] "owd"
 ```
 
 ---
@@ -1210,7 +1213,7 @@ sqrt(MonVecteur)
 ```
 
 ```
-## Warning in sqrt(MonVecteur): production de NaN
+## Warning in sqrt(MonVecteur): NaNs produced
 ```
 
 ```
@@ -1452,9 +1455,9 @@ MaPremiereMatrice
 ```
 
 ```
-##          [,1]     [,2]     [,3]     [,4]     [,5]
-## [1,] 96.39474 97.36567 1.388519 62.32791 83.27007
-## [2,] 48.63287 67.37647 6.647475 65.06831 67.27254
+##          [,1]      [,2]     [,3]     [,4]     [,5]
+## [1,] 77.26383  7.222692 63.99067 93.96724 48.72114
+## [2,] 76.06689 25.193991 38.11160 40.20421 82.57988
 ```
 
 ```r
@@ -1462,7 +1465,7 @@ sum(MaPremiereMatrice[,1])
 ```
 
 ```
-## [1] 145.0276
+## [1] 153.3307
 ```
 
 
@@ -1771,13 +1774,14 @@ ls()
 ```
 
 ```
-##  [1] "a"                  "b"                  "ButsDesNumPos"     
-##  [4] "c"                  "collage"            "df"                
-##  [7] "df2"                "faux"               "MaListe"           
-## [10] "MaMatrice"          "MaPremiereMatrice"  "mat"               
-## [13] "MesAutresFacteurs"  "MesFacteurs"        "MonDeuxiemeVecteur"
-## [16] "MonPremierVecteur"  "MonVecteur"         "NHL"               
-## [19] "test"               "vrai"
+##  [1] "a"                  "b"                  "binary"            
+##  [4] "ButsDesNumPos"      "c"                  "collage"           
+##  [7] "df"                 "df2"                "faux"              
+## [10] "MaListe"            "MaMatrice"          "MaPremiereMatrice" 
+## [13] "mat"                "MesAutresFacteurs"  "MesFacteurs"       
+## [16] "message"            "MonDeuxiemeVecteur" "MonPremierVecteur" 
+## [19] "MonVecteur"         "NHL"                "owd"               
+## [22] "test"               "vrai"
 ```
 
 ---
@@ -2013,8 +2017,8 @@ tri
 ```
 
 ```
-##  [1] 52.36562 58.03212 50.11564 79.18660 53.12758 14.44866 68.27751
-##  [8] 39.82650 66.78491 96.79876
+##  [1] 60.754230 19.500353 83.856071 86.045012 39.323470 38.923213  4.950532
+##  [8] 52.401534 82.462298 97.515468
 ```
 
 ```r
@@ -2022,8 +2026,8 @@ sort(tri)
 ```
 
 ```
-##  [1] 14.44866 39.82650 50.11564 52.36562 53.12758 58.03212 66.78491
-##  [8] 68.27751 79.18660 96.79876
+##  [1]  4.950532 19.500353 38.923213 39.323470 52.401534 60.754230 82.462298
+##  [8] 83.856071 86.045012 97.515468
 ```
 
 ---
@@ -2036,8 +2040,8 @@ rang
 ```
 
 ```
-##  [1]  7.638092 59.008517 65.320309 58.291962 90.813781 42.897253 46.363461
-##  [8]  6.552614 66.323973 89.407863
+##  [1] 57.39488 76.08743 22.87618 64.06079 29.11152 46.50378 70.58664
+##  [8] 20.19448 10.04977 41.78638
 ```
 
 ```r
@@ -2045,7 +2049,7 @@ rank(rang)
 ```
 
 ```
-##  [1]  2  6  7  5 10  3  4  1  8  9
+##  [1]  7 10  3  8  4  6  9  2  1  5
 ```
 
 ---
