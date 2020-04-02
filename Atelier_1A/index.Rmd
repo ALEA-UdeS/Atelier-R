@@ -42,6 +42,14 @@ class: title-slide, middle
 <img src="assets/img/Rlogo.png" width="8%" style="margin-top:20px;"></img>
 
 ---
+
+# Quelques présentations sont de mises...
+
+<div style='text-align:center;'>
+<img src="assets/img/JP.png" height="450"></img>
+</div>
+
+---
 class: inverse, center, middle
 
 # Cassons la glace!
@@ -578,7 +586,7 @@ pour le cours nous nous limiterons à des objets en deux dimensions
 
 ---
 
-# Dimension 0: Les scalaires
+# Introduction aux scalaires
 
 Ces objets ne contiennent qu'une seule information
 
@@ -594,7 +602,7 @@ gogo = TRUE
 
 ---
 
-# Dimension 1:  Les vecteurs
+# Introduction aux vecteurs
 
 Ces objets contiennent un série d'information. Chaque valeur
 a une position dans le vecteur, laquelle peut être accédée.
@@ -609,7 +617,7 @@ lettre[3]
 
 ---
 
-# Dimension 2: Les matrices
+# Introduction aux matrices
 
 Ayant deux dimensions, ces objets présentent les données sous forme de matrices et ont des lignes et des colonnes. Pour accéder à une valeur dans une matrice il faut donner la position de la <b>ligne</b> en premier suivit de la position de la <b>colonne</b>.
 
@@ -656,7 +664,30 @@ class: inverse, middle, center
 
 # Les 10 commandements de la programmation
 
+> <b>1.</b> Tu commenteras ton code pour que d'autres puissent le lire, le comprendre et le partager
+
+```
+# Avec le symbole "#", on peut écrire des commentaires!
+# Ceci peut êttre utile pour détailler notre code.
+#
+# Ici, on fait la somme de deux nombres
+Somme = PremierNombre + DeuxiemeNombre
+
+```
+
+---
+
+# Les 10 commandements de la programmation
+
 > <b>2.</b> Il faut prendre soin de l'environnement et nettoyer ses déchets
+
+---
+
+# Les 10 commandements de la programmation
+
+> <b>2.</b> Il faut prendre soin de l'environnement et nettoyer ses déchets
+
+Dans un fichier de code (tout comme dans n'importe quel fichier informatique!), on ne devrait jamais garder les choses qui ne servent à rien. On doit faire du ménage!
 
 ---
 
@@ -668,7 +699,32 @@ class: inverse, middle, center
 
 # Les 10 commandements de la programmation
 
+> <b>3.</b> Ton script sera dur à avaler. Mieux vaut le découper
+
+Programmer, c'est avant tout résoudre des problèmes. Et, si l'histoire nous a appris une chose, c'est bien qu'il vaut mieux diviser pour régner.
+
+---
+
+# Les 10 commandements de la programmation
+
 > <b>4.</b> Plusieurs chiens s'appellent Fido, le tiens tu sauras le nommer
+
+---
+
+# Les 10 commandements de la programmation
+
+> <b>4.</b> Plusieurs chiens s'appellent Fido, le tiens tu sauras le nommer
+
+```
+# Lorsqu'on ecrit un algorithme, on travaille avec des objets (ou encore des variables)
+# Il vaut mieux bien nommer ces objets, sans quoi le code devient illisible et complexe!
+
+x = xx + xxx
+y = y1 + y2
+z = Z_A + Z_B
+a = x * y * z
+
+```
 
 ---
 
@@ -680,7 +736,23 @@ class: inverse, middle, center
 
 # Les 10 commandements de la programmation
 
+> <b>5.</b> Des pas de bébés permettent aussi d'avancer
+
+On ne se cachera pas que programmer, c'est difficile au début. On doit apprendre une nouvelle langue et penser différemment. C'est important d'être fier et satisfait de nos petites victoires!
+
+---
+
+# Les 10 commandements de la programmation
+
 > <b>6.</b> Un bon programmeur est paresseux. Les opérations répétées doivent être définies sous forme de fonctions
+
+---
+
+# Les 10 commandements de la programmation
+
+> <b>6.</b> Un bon programmeur est paresseux. Les opérations répétées doivent être définies sous forme de fonctions
+
+Un des buts de la programmation, c'est aussi de ne pas avoir à répéter les mêmes tâches encore et encore. C'est aussi vrai pour un algorithme! 
 
 ---
 
@@ -692,7 +764,24 @@ class: inverse, middle, center
 
 # Les 10 commandements de la programmation
 
+> <b>7.</b> La vie est trop courte, ton code sera optimisé
+
+Bien que ce n'est pas la chose la plus importante lorsqu'on apprend à coder, il vient un temps où il est important de faire des algorithmes efficaces. Si on a besoin d'utiliser Mammouth, on ne veut pas gaspiller du temps de calcul! 
+
+---
+
+# Les 10 commandements de la programmation
+
 > <b>8.</b> Et un jour tu disparaîtras, alors assure toi que ton code soit reproductible
+
+---
+
+# Les 10 commandements de la programmation
+
+> <b>8.</b> Et un jour tu disparaîtras, alors assure toi que ton code soit reproductible
+
+Certains logiciels permettent de créer des projets plutôt que simplement un script contenant un algorithme. Ceci peut permettre d'éviter certaines erreurs lorsque l'on bouge ou modifie des fichiers.
+
 
 ---
 
@@ -704,7 +793,23 @@ class: inverse, middle, center
 
 # Les 10 commandements de la programmation
 
+> <b>9.</b> En tout puissant que tu es, le tirage au sort tu pourras répéter
+
+Certaines commandes permettent de faire en sorte que notre code donnera toujours le même résultat, et ce même si on utilise des valeurs aléatoires! Ceci peut être fort utile, voir nécessaire, lorsqu'on construit des modèles complexes.
+
+---
+
+# Les 10 commandements de la programmation
+
 > <b>10.</b> Et dans le passé tu souhaiteras voyager, utilise le contrôle de versions
+
+---
+
+# Les 10 commandements de la programmation
+
+> <b>10.</b> Et dans le passé tu souhaiteras voyager, utilise le contrôle de versions
+
+Quand quelque chose fonctionne, on ne veut surtout pas le briser. C'est pourquoi on a tendance à copier nos fichiers qui contiennent notre code pour éviter de faire des bêtises. Dans ce cas, il est très important de bien identifier ces fichiers (par exemple avec des dates). 
 
 ---
 
@@ -729,12 +834,36 @@ class: inverse, middle, center
 
 ---
 
+# Mon premier pseudo-code!
+
+On demande à un utilisateur d'entrer son age au claver. Par la suite, le programme affiche à l'écran un message si l'utilisateur est un adulte ou pas.
+
+Écrivez le pseudo-code pour ce programme.
+
+---
+
+# Mon premier pseudo-code! Solution
+
+On demande à un utilisateur d'entrer son age au claver. Par la suite, le programme affiche à l'écran un message si l'utilisateur est un adulte ou pas.
+
+```
+PROGRAM MAJEUR
+  READ AGE
+  IF AGE < 18
+    PRINT "Vous n'êtes pas un adulte!"
+  ELSE 
+    PRINT "Vous êtes un adulte!"
+  END IF
+```
+
+---
+
 # Une situation qui peut arriver tous les jours
 
 1. On jette en face de vous 5 lettres d'un jeu de scrabble
 2. Un maniac vous demande d'écrire un programme permettant d'ordonner les 5 lettres
 
-Prenez le temps de distinguer les étapes que vous réalisez lorsque vous triez les lettres. Essayez de les décrire sous forme de pseudo-code.
+Prenez le temps de distinguer les étapes que vous réalisez lorsque vous triez les lettres. Essayez de résoudre le problème (ou une version plus simple, par exemple avec 3 lettres) "à bras". Essayez ensuite de décrire votre résolution sous forme de pseudo-code.
 
 ---
 
