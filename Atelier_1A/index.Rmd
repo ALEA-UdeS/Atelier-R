@@ -42,6 +42,13 @@ class: title-slide, middle
 <img src="assets/img/Rlogo.png" width="8%" style="margin-top:20px;"></img>
 
 ---
+class: inverse, center, middle
+
+# Cassons la glace!
+<hr width="65%" size="0.3" color="orange" style="margin-top:-20px;"></hr>
+
+
+---
 
 # Introduction
 
@@ -336,16 +343,6 @@ Le programme `DEMO` fait croitre une population de taille initiale $n_t$ à un t
 
 ---
 
-# Les structures de base d'un algorithme
-
-On retrouve 3 familles d'opérations:
-
-1. Les opérations séquentielles
-2. Les opérations itératives (`FOR`, `WHILE`)
-3. Les opérations décisionnelles (`IF`, `IFELSE`)
-
----
-
 # Avant-propos
 
 Avant de décrire chacune des opérations d'un algorithme, certaines instructions sont communes:
@@ -358,12 +355,23 @@ Avant de décrire chacune des opérations d'un algorithme, certaines instruction
 
 ---
 
+# Les structures de base d'un algorithme
+
+On retrouve 3 familles d'opérations:
+
+1. Les opérations séquentielles
+2. Les opérations itératives (`FOR`, `WHILE`)
+3. Les opérations décisionnelles (`IF`, `IFELSE`)
+
+
+---
+
 # 1. Les opérations séquentielles
 
 ## Exemple: Calculer l'aire d'un rectangle
 
 ```
-PROGRAM AIRE_REC
+PROGRAMME AIRE_REC
   ENTRER hauteur
   ENTRER largeur
   ÉCRIRE hauteur * largeur
@@ -373,24 +381,92 @@ Chaque opération est effectuée l'une après l'autre dans un ordre déterminé.
 
 ---
 
+
+# 1. Les opérations séquentielles
+
+## Exemple: Calculer l'aire d'un rectangle
+
+```
+PROGRAMME AIRE_REC
+  ENTRER hauteur
+  ENTRER largeur
+  ÉCRIRE hauteur * largeur
+```
+
+Chaque opération est effectuée l'une après l'autre dans un ordre déterminé.
+
+Avec les mots clés habituels en Pseudo-code, on peut réécrire:
+
+```
+PROGRAM AIRE_REC
+  READ hauteur
+  READ largeur
+  WRITE hauteur * largeur
+```
+
+---
+
 # 2. Les opérations itératives
 
 ## Exemple avec `FOR`: Croissance exponentielle
 
 ```
-PROGRAM DEMO
-  FOR t IN 1:100
+PROGRAMME DEMO
+  POUR CHAQUE VALEUR DE t ALLANT DE 1 À 100
     n_t = n_t * lambda
-  END FOR
+  FIN DU "POUR CHAQUE"
+```
+
+---
+
+# 2. Les opérations itératives
+
+## Exemple avec `FOR`: Croissance exponentielle
+
+```
+PROGRAMME DEMO
+  POUR CHAQUE VALEUR DE t ALLANT DE 1 À 100
+    n_t = n_t * lambda
+  FIN DU "POUR CHAQUE"
 ```
 
 La population va croître pendant 100 pas de temps.
+
+Avec les mots clés habituels en Pseudo-code, on peut réécrire:
+
+```
+PROGRAM DEMO
+  FOR t in 1:100
+    n_t = n_t * lambda
+  END FOR
+```
+---
+
+# 2. Les opérations itératives
+
+## Exemple avec `WHILE`: Croissance avec capacité de support (K)
+
+```
+PROGRAMME DEMO
+  TANT QUE n_t EST PLUS PETIT QUE K
+    n_t = n_t * lambda
+  FIN DU "TANT QUE"
+```
 
 ---
 
 # 2. Les opérations itératives
 
 ## Exemple avec `WHILE`: Croissance avec capacité de support (K)
+
+```
+PROGRAMME DEMO
+  TANT QUE n_t EST PLUS PETIT QUE K
+    n_t = n_t * lambda
+  FIN DU "TANT QUE"
+```
+
+Avec les mots clés habituels en Pseudo-code, on peut réécrire:
 
 ```
 PROGRAM DEMO
@@ -404,6 +480,32 @@ PROGRAM DEMO
 # 3. Les opérations décisionnelles
 
 ## Exemple avec `IF`: quelques tests sur $\lambda$
+
+```
+PROGRAMME DEMO
+  SI lambda EST PLUS GRAND QUE 0
+    AFFICHER "La population est croissante"
+  SINON lambda < 0
+    AFFICHER "La population est décroissante"
+  FIN DU "SI"
+```
+
+---
+
+# 3. Les opérations décisionnelles
+
+## Exemple avec `IF`: quelques tests sur $\lambda$
+
+```
+PROGRAMME DEMO
+  SI lambda EST PLUS GRAND QUE 0
+    AFFICHER "La population est croissante"
+  SINON lambda < 0
+    AFFICHER "La population est décroissante"
+  FIN DU "SI"
+```
+
+Avec les mots clés habituels en Pseudo-code, on peut réécrire:
 
 ```
 PROGRAM DEMO
@@ -452,7 +554,7 @@ Avec la clause `ELSE`, la croissance est nulle
 
 ---
 
-# Les types d'objets
+# Introduction aux types d'objets
 
 Les objets en programmation sont définis en fonction de leur dimensionalité.
 
